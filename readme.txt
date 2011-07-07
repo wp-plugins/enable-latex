@@ -3,8 +3,8 @@
 Contributors: SedLex
 Donate link: http://www.sedlex.fr/divers/
 Tags: plugin, short url
-Requires at least: 2.0
-Tested up to: 3.1
+Requires at least: 3.0
+Tested up to: 3.2
 Stable tag: trunk
 
 Enable the insertion of LaTeX formula in your post
@@ -13,16 +13,31 @@ Enable the insertion of LaTeX formula in your post
 
 Enable the insertion of LaTeX formula in your post.
 
-Just type [latex]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type (for instance) [latex]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
 You can configure: 
 
-* the style of the image displayed.
+* the style of the image displayed,
+* the color of the background of the image,
+* the color of the text image (the formula),
+* if you want to activate the cache of the formula.
 
 == Installation ==
 
-1. Upload 'table-of-content' to your '/wp-content/plugins/' directory
+1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
 2. Activate the plugin through the 'Plugins' menu in WordPress
+3. The configuration page should be under the box 'SL plugins'
+
+== Screenshots ==
+
+1. The configuration page of the plugin
+2. An example of LaTex formula in a post
+
+== Changelog ==
+
+= 1.0 =
+* First release in the wild web
+
 
 == Frequently Asked Questions ==
 
