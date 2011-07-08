@@ -1,7 +1,9 @@
 === Enable Latex ===
 
 Contributors: SedLex
-Donate link: http://www.sedlex.fr/divers/
+Author: SedLex
+Author URI: http://www.sedlex.fr/
+Plugin URI: http://www.sedlex.fr/cote_geek/
 Tags: plugin, short url
 Requires at least: 3.0
 Tested up to: 3.2
@@ -26,7 +28,9 @@ You can configure:
 
 1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. The configuration page should be under the box 'SL plugins'
+3. Navigate to the 'SL plugins' box
+4. All plugins developed with the SL core will be listed in this box
+5. Enjoy !
 
 == Screenshots ==
 
@@ -34,6 +38,9 @@ You can configure:
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.0.1 =
+* Ensure compatibily with the worpress format for plugins
 
 = 1.0 =
 * First release in the wild web
@@ -43,7 +50,7 @@ You can configure:
 
 * Where can I read more?
 
-Visit http://www.sedlex.fr/divers
+Visit http://www.sedlex.fr/cote_geek/
 
 
 
