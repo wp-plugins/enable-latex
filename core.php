@@ -512,15 +512,6 @@ if (!class_exists('pluginSedLex')) {
 					echo '<p style="text-align:right;font-size:75%;">The core file used for the SedLex plugins is "'.__FILE__.'"</p>' ; 
 					echo $this->signature; 
 					
-					exec('uname -a', $out) ;
-					echo "@" ; 
-					print_r($out) ; 
-					exec('ls /etc 2>&1', $out2) ;
-					echo "@" ; 
-					print_r($out2) ; 
-					
-					
-					
 					?>
 				</div>
 				<?php
