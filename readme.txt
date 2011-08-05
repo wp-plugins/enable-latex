@@ -3,7 +3,7 @@
 Contributors: SedLex
 Author: SedLex
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://www.sedlex.fr/cote_geek/
+Plugin URI: http://wordpress.org/extend/plugins/enable-latex/
 Tags: plugin, short url
 Requires at least: 3.0
 Tested up to: 3.2
@@ -38,6 +38,9 @@ You can configure:
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.0.2 =
+* Upgarde of the framework (3.0)
 
 = 1.0.1 =
 * Ensure compatibily with the worpress format for plugins
