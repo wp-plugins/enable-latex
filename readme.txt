@@ -8,7 +8,6 @@ Tags: plugin, short url
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
-
 Enable the insertion of LaTeX formula in your post
 
 == Description ==
@@ -17,7 +16,7 @@ Enable the insertion of LaTeX formula in your post.
 
 Just type (for instance) [latex]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
-You can configure: 
+You can configure:
 
 * the style of the image displayed,
 * the color of the background of the image,
@@ -39,8 +38,13 @@ You can configure:
 
 == Changelog ==
 
+= 1.0.3 =
+* Translations available
+* French translation provided
+* Feedback possible
+
 = 1.0.2 =
-* Upgarde of the framework (3.0)
+* Upgrade of the framework (3.0)
 
 = 1.0.1 =
 * Ensure compatibily with the worpress format for plugins
@@ -48,13 +52,11 @@ You can configure:
 = 1.0 =
 * First release in the wild web
 
-
 == Frequently Asked Questions ==
 
 * Where can I read more?
 
 Visit http://www.sedlex.fr/cote_geek/
 
-
-
-
+ 
+InfoVersion:39ad7f12123a16d6f3c182729e7f50d8

@@ -2,8 +2,10 @@
 /*
 Plugin Name: Enable Latex
 Description: <p>Enable the insertion of LaTeX formula in your post.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: <ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul></p><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-latex/">WP-LaTeX</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.0.2
+Version: 1.0.3
 Author: SedLex
+Author Email: sedlex@sedlex.fr
+Framework Email: sedlex@sedlex.fr
 Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/enable-latex/
 License: GPL3
@@ -65,23 +67,25 @@ class enableLatex extends pluginSedLex {
 	* 
 	* @return void
 	*/
-	
 	function ajoute_inline_css() {
 		$this->add_inline_css($this->get_param('css')) ; 
 	}
+	
 	/** ====================================================================================================================================================
 	* The configuration page
 	* 
 	* @return void
 	*/
+	
 	function configuration_page() {
 		?>
 		<div class="wrap">
 			<div id="icon-themes" class="icon32"><br></div>
 			<h2><?php echo $this->pluginName ?></h2>
+		</div>
+		<div style="padding:20px;">			
 			<?php echo $this->signature ; ?>
-			<p>This plugin will enable LaTeX formula in posts and pages.</p>
-			<!--debut de personnalisation-->
+			<p><?php echo __('This plugin will enable LaTeX formula in posts and pages.',$this->pluginID) ?></p>
 		<?php
 			
 			//==========================================================================================
@@ -90,52 +94,53 @@ class enableLatex extends pluginSedLex {
 			//		(bien mettre a jour les liens contenu dans les <li> qui suivent)
 			//
 			//==========================================================================================
-	?>		
-			<script>jQuery(function($){ $('#tabs').tabs(); }) ; </script>		
-			<div id="tabs">
-				<ul class="hide-if-no-js">
-					<li><a href="#tab-parameters"><? echo __('Parameters',$this->pluginName) ?></a></li>					
-				</ul>
-				<?php
-				//==========================================================================================
-				//
-				// Premier Onglet 
-				//		(bien verifier que id du 1er div correspond a celui indique dans la mise en 
-				//			place des onglets)
-				//
-				//==========================================================================================
-				?>
-				
-				<div id="tab-parameters" class="blc-section">
-				
-					<h3 class="hide-if-js"><? echo __('Parameters',$this->pluginName) ?></h3>
-					<p><?php echo __('Here is the parameters of the plugin. Please modify them at your convenience.',$this->pluginName) ; ?> </p>
-				
-					<?php
-					$params = new parametersSedLex($this, 'tab-parameters') ; 
-					$params->add_title(__('Do you want to change the style of the image displayed for Latex formula:',$this->pluginName)) ; 
-					$params->add_param('css', __('The style:',$this->pluginName)) ; 
-					$comment = __('The standard CSS is:',$this->pluginName); 
-					$comment .= "<br/><span style='margin-left: 30px;'><code>img.latex {</code></span><br/>" ; 
-					$comment .= "<span style='margin-left: 60px;'><code>vertical-align: middle;</code></span><br/>" ; 
-					$comment .= "<span style='margin-left: 60px;'><code>border: none;</code></span><br/>" ; 
-					$comment .= "<span style='margin-left: 30px;'><code>}</code></span>" ; 
-					$params->add_comment($comment) ; 
-					$params->add_title(__('What is the color:',$this->pluginName)) ; 
-					$params->add_param('font_color', __('For the font:',$this->pluginName), '',"@#[a-fA-F0-9]{6}@") ; 
-					$params->add_param('background_color', __('For the background:',$this->pluginName), "","@#[a-fA-F0-9]{6}@") ; 
-					$params->add_comment(__('Please add the # character before the code. If you do not know what code to use, please visit this website:',$this->pluginName)." <a href='http://html-color-codes.info/'>http://html-color-codes.info/</a>") ; 
-					$params->add_title(__('Do you want to cache the images on the local disk?',$this->pluginName)) ; 
-					$params->add_param('cache', __('Cache enabled:',$this->pluginName)) ; 
+			$tabs = new adminTabs() ; 
+			
+			ob_start() ; 
+				echo "<p>".__('Here is the parameters of the plugin. Please modify them at your convenience.',$this->pluginID)."</p>" ; 
+				$params = new parametersSedLex($this, 'tab-parameters') ; 
+				$params->add_title(__('Do you want to change the style of the image displayed for Latex formula:',$this->pluginID)) ; 
+				$params->add_param('css', __('The style:',$this->pluginID)) ; 
+				$comment = __('The standard CSS is:',$this->pluginID); 
+				$comment .= "<br/><span style='margin-left: 30px;'><code>img.latex {</code></span><br/>" ; 
+				$comment .= "<span style='margin-left: 60px;'><code>vertical-align: middle;</code></span><br/>" ; 
+				$comment .= "<span style='margin-left: 60px;'><code>border: none;</code></span><br/>" ; 
+				$comment .= "<span style='margin-left: 30px;'><code>}</code></span>" ; 
+				$params->add_comment($comment) ; 
+				$params->add_title(__('What is the color:',$this->pluginID)) ; 
+				$params->add_param('font_color', __('For the font:',$this->pluginID), '',"@#[a-fA-F0-9]{6}@") ; 
+				$params->add_param('background_color', __('For the background:',$this->pluginID), "","@#[a-fA-F0-9]{6}@") ; 
+				$params->add_comment(sprintf(__('Please add the # character before the code. If you do not know what code to use, please visit this website: %s',$this->pluginID),"<a href='http://html-color-codes.info/'>http://html-color-codes.info/</a>")) ; 
+				$params->add_title(__('Do you want to cache the images on the local disk?',$this->pluginID)) ; 
+				$params->add_param('cache', __('Cache enabled:',$this->pluginID)) ; 
+				$params->flush() ; 
 					
-					$params->flush() ; 
-					
-					
-					?>
-				</div>
-			</div>
-			<!--fin de personnalisation-->
-			<?php echo $this->signature ; ?>
+			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() ) ; 	
+			
+			
+			ob_start() ; 
+				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
+				$trans = new translationSL($this->pluginID, $plugin) ; 
+				$trans->enable_translation() ; 
+			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() ) ; 	
+
+			ob_start() ; 
+				echo __('This form is an easy way to contact the author and to discuss issues / incompatibilities / etc.',  $this->pluginID) ; 
+				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
+				$trans = new feedbackSL($plugin, $this->pluginID) ; 
+				$trans->enable_feedback() ; 
+			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() ) ; 	
+
+			ob_start() ; 
+				echo "<p>".__('Here is the plugins developped by the author',  $this->pluginID) ."</p>" ; 
+				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
+				$trans->list_plugins() ; 
+			$tabs->add_tab(__('Other possible plugins',  $this->pluginID), ob_get_clean() ) ; 	
+			
+			echo $tabs->flush() ; 
+			
+			echo $this->signature ; 					
+			?>
 		</div>
 		<?php
 	}

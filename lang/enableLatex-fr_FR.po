@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-08-27T20:23:34+00:00\n"
+"Last-Translator: SedLex <http://www.sedlex.fr/>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: France\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "This plugin will enable LaTeX formula in posts and pages."
+msgstr "Ce plugin permettra de rédiger des formules LaTeX dans vos articles et vos pages."
+
+msgid "Here is the parameters of the plugin. Please modify them at your convenience."
+msgstr "Voici les paramètres du plugin. Vous pouvez les modifier comme vous le souhaitez."
+
+msgid "Do you want to change the style of the image displayed for Latex formula:"
+msgstr "Voulez-vous modifier le style des images affichées pour les formules LaTeX ?"
+
+msgid "The style:"
+msgstr "Le style"
+
+msgid "The standard CSS is:"
+msgstr "La feuille de style CSS standard est :  "
+
+msgid "What is the color:"
+msgstr "Quelle est la couleur : "
+
+msgid "For the font:"
+msgstr "Pour la police :"
+
+msgid "For the background:"
+msgstr "Pour le fond :"
+
+msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
+msgstr "Merci d&#039;ajouter le caractère # devant le code. Si vous ne savez pas quel code utiliser, merci de visiter ce site web : %s"
+
+msgid "Do you want to cache the images on the local disk?"
+msgstr "Voulez-vous réaliser un cache des images en local ? "
+
+msgid "Cache enabled:"
+msgstr "Cache activé:"
+
+msgid "Parameters"
+msgstr "Paramètres"
+
+msgid "Manage translations"
+msgstr "Gérer les traductions"
+
+msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
+msgstr "Ce formulaire vous permet de contacter simplement l&#039;auteur afin de discuter de vos problèmes / d&#039;incompatibilités / etc."
+
+msgid "Give feedback"
+msgstr "Donner un feedback"
+
+msgid "Here is the plugins developped by the author"
+msgstr "Voici les plugins développés par l&#039;auteur"
+
+msgid "Other possible plugins"
+msgstr "Autres plugins possibles"
+
