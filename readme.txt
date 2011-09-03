@@ -4,7 +4,7 @@ Contributors: SedLex
 Author: SedLex
 Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/enable-latex/
-Tags: plugin, short url
+Tags: plugin, latex
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
@@ -38,6 +38,9 @@ You can configure:
 
 == Changelog ==
 
+= 1.0.4 =
+* Ensure that folders and files permissions are correct for an adequate behavior
+
 = 1.0.3 =
 * Translations available
 * French translation provided
@@ -59,4 +62,4 @@ You can configure:
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:39ad7f12123a16d6f3c182729e7f50d8
+InfoVersion:7ba4a6cbc64ed584cb39b4738ecab3c6
