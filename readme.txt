@@ -38,6 +38,9 @@ You can configure:
 
 == Changelog ==
 
+= 1.0.5 =
+* ZipArchive class has been suppressed and pclzip is used instead
+
 = 1.0.4 =
 * Ensure that folders and files permissions are correct for an adequate behavior
 
@@ -62,4 +65,4 @@ You can configure:
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:7ba4a6cbc64ed584cb39b4738ecab3c6
+InfoVersion:db6e33cce59c6d5fc6f97b2533ec70be

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Enable Latex
 Description: <p>Enable the insertion of LaTeX formula in your post.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: <ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul></p><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-latex/">WP-LaTeX</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.0.4
+Version: 1.0.5
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
