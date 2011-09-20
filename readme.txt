@@ -23,6 +23,18 @@ You can configure:
 * the color of the text image (the formula),
 * if you want to activate the cache of the formula.
 
+= Localizations =
+
+* French translation (by me)
+
+= Features of the framework = 
+
+This plugin use SL framework.
+
+You may translate this plugin with an embedded feature which is very easy to use by any end-users (without any external tools / knowledge).
+
+You may also create a new plugin. You will download, from the plugin, an "hello World" plugin: You just have to fill the blank and follow the comments.
+
 == Installation ==
 
 1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
@@ -37,6 +49,9 @@ You can configure:
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.0.6 =
+* The core plugin has been updated
 
 = 1.0.5 =
 * ZipArchive class has been suppressed and pclzip is used instead
@@ -65,4 +80,4 @@ You can configure:
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:db6e33cce59c6d5fc6f97b2533ec70be
+InfoVersion:d869a6e5727e46e571ba26da3f2930dc
