@@ -50,6 +50,9 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 
 == Changelog ==
 
+= 1.1.0 =
+* SVN support for committing changes
+
 = 1.0.6 =
 * The core plugin has been updated
 
@@ -80,4 +83,4 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:d869a6e5727e46e571ba26da3f2930dc
+InfoVersion:30625bebd0c210105f98dfb1b9a844f1
