@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-10-20T11:37:12+00:00\n"
+"PO-Revision-Date: 2011-10-23T12:17:43+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -90,19 +90,19 @@ msgid "This plugin is hosted by wordpress repository and is up-to-date !"
 msgstr "Ce plugin est hébergé par Wordpress et est à jour !"
 
 msgid "Last update:"
-msgstr "Dernière mise à jour"
+msgstr "Dernière mise à jour :"
+
+msgid "Rating: %s"
+msgstr "Evaluation : %s"
 
 msgid "by %s persons"
 msgstr "par %s personnes"
 
-msgid "Rating:"
-msgstr "Evaluation : "
-
 msgid "Number of download:"
-msgstr "Nombre de téléchargement"
+msgstr "Nombre de téléchargement :"
 
 msgid "Version: %s by %s"
-msgstr "Version %s par %s"
+msgstr "Version : %s par %s"
 
 msgid "Update with the core of the %s plugin (only if you definitely know what you do)"
 msgstr "Mettre à jour le core du plugin (seulement si vous savez ce que vous faites)"
@@ -114,7 +114,7 @@ msgid "SVN management"
 msgstr "Gestion SVN"
 
 msgid "An error occurs when requesting %s"
-msgstr "Une erreur est survenue pendant la requête"
+msgstr "Une erreur est survenue pendant la requête %s"
 
 msgid "You do not seem to have a repository for Wordpress because %s returns a 404 error. Thus, ask for one here: %s"
 msgstr "Vous ne semblez pas avoir de dépôt Wordpress car %s retourne une erreur 404. Demandez un dépôt ici : %s"
@@ -475,67 +475,4 @@ msgstr "Le feedback a été envoyé"
 
 msgid "Close popup"
 msgstr "Fermer le popup"
-
-msgid "The file %s cannot be created. Therefore, no svn script can be created. Please make the folder writable or visit %s to install a SubVersion package on your server."
-msgstr "Le fichier %s ne peut pas être créé. Ainsi, aucun script SVN ne peut être créé. Merci de permettre l&#039;écriture dans le répertoire ou allez sur %s pour installer SubVersion sur votre serveur."
-
-msgid "The folder %s does not exists and cannot be created. Therefore, no svn script can be created in that folder. Please create this folder (and make it writable) or visit %s to install a SubVersion package on your server."
-msgstr "Le répertoire %s n&#039;existe pas et ne peut pas être créé. Ainsi, aucun script SVN ne peut être créé dans ce répertoire. Merci de créer ce répertoire (et permettez l&#039;écriture dans ce répertoire) ou allez sur %s pour installer SubVersion sur votre serveur."
-
-msgid "The operating system of your server is %s. No installation of SVN has been found. Please visit %s to install a SubVersion package on your server."
-msgstr "Le système d&#039;exploitation de votre serveur est %s. Aucune installation de SVN n&#039;a été trouvé. Merci visiter %s pour installer SubVersion sur votre serveur."
-
-msgid "The exec function is disabled on your installation. This function is mandatory to be able to use SVN."
-msgstr "La fonction exec est désactivée sur votre server. Cette fonction est obligatoire pour utiliser SVN. "
-
-msgid "SVN command:"
-msgstr "Commande SVN :"
-
-msgid "%s returns the following code: %s"
-msgstr "%s retourne le code suivant : %s"
-
-msgid "Checkout has failed! Please retry ..."
-msgstr "Checkout a échoué ! Merci de ré-essayer ..."
-
-msgid "Indeed, it is known that the Checkout command have some difficulties to work. You may have to re-test several times (1-20 times) to finally succeed."
-msgstr "En effet, il est connu que la command checkout a quelques problème de fonctionnement. Vous pouvez avoir à re-essayer plusieurs fois (1-20 fois) pour y réussir finalement."
-
-msgid "Do not panic: once the checkout have worked one time, the update command will be used and it is far more robust!"
-msgstr "Ne paniquez pas : une fois que la commande checkout a fonctionné une seul fois, la commande d&#039;update sera utilisée et est beaucoup plus robuste."
-
-msgid "NOTE: The command outputs the following information:"
-msgstr "NOTE : La commande a retourné les informations suivantes :"
-
-msgid "The checkout have begun but have been interrupted without any reason!"
-msgstr "La commande checkout a commencé mais a été interrompu pour une raison inconnu !"
-
-msgid "Update the local cache"
-msgstr "Mettre à jour le cache local"
-
-msgid "Compare the local cache with the plugins files"
-msgstr "Comparer le cache local avec les fichiers du plugin"
-
-msgid "Yes, the local version will be deleted and be replaced by the files stored on the SVN repository"
-msgstr "Oui, la version locale sera supprimée et remplacée avec les fichiers stockés sur le dépôt SVN"
-
-msgid "Retry the SVN preparation!"
-msgstr "Retenter la préparartion SVN !"
-
-msgid "Add a file: %s"
-msgstr "Ajouter le fichier : %s"
-
-msgid "Delete a file: %s"
-msgstr "Supprimer le fichier : %s"
-
-msgid "Final commit:"
-msgstr "Soumission finale :"
-
-msgid "The commit has ended and you may restart a normal life by closing the window..."
-msgstr "La soumission est terminée et vous pouvez recommencer une vie normale en fermant la fenêtre..."
-
-msgid "Thank you!"
-msgstr "Merci"
-
-msgid "The overwrite has ended and you may restart a normal life by closing the window..."
-msgstr "Le remplacement est terminé et vous pouvez recommencer une vie normale en fermant la fenêtre..."
 

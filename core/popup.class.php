@@ -14,6 +14,7 @@ if (!class_exists("popupAdmin")) {
 		/** ====================================================================================================================================================
 		* Constructor of the class
 		* 
+		* @param string $title the title which will be displayed in the top of the popup
 		* @param string $css the css of the popup if needed.
 		* @param string $content the content of the popup
 		* @return void 
