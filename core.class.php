@@ -899,8 +899,7 @@ if (!class_exists('pluginSedLex')) {
 			// $action: query_plugins, plugin_information or hot_tags
 			// $req is an object
 			$action = "plugin_information" ; 
-			$req->slug = $plugin_name; 
-			
+			$req->slug = $plugin_name;
 			$request = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array( 'body' => array('action' => $action, 'request' => serialize($req))) );
 			if ( is_wp_error($request) ) {
 				echo  "<p>".__('An Unexpected HTTP Error occurred during the API request.', 'SL_framework' )."</p>";
@@ -961,6 +960,8 @@ if (!class_exists('pluginSedLex')) {
 				$info_core .= "<p style='color:#666666;font-size:75%;text-align:right'><a href='#' onclick='coreUpdate(\"corePlugin_".md5($url)."\", \"".$url."\" , \"".$plugin_name."\" , \"".$current_core_used."\" , \"".$current_fingerprint_core_used."\" , \"".$author."\",  \"".$current_core_used."/".current_core_used.".php\", \"".$url."\") ; return false ; '>".sprintf(__('Update with the core of the %s plugin (only if you definitely know what you do)', 'SL_framework'), $current_core_used)."</a><img id='wait_corePlugin_".md5($url)."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'></p>" ;  
 			} 
 			
+			$info = $this->get_plugins_data(WP_PLUGIN_DIR."/".$url);
+			
 			// SVN interface
 			if (get_option('SL_framework_SVN', false)==true) {
 				if (strlen(get_option('SL_framework_SVN_author', ""))>0) {
@@ -975,27 +976,58 @@ if (!class_exists('pluginSedLex')) {
 						} else {
 							if ($request['response']['code']!='200') {
 								$info_core .= "<p>".sprintf(__("You do not seem to have a repository for Wordpress because %s returns a 404 error. Thus, ask for one here: %s", 'SL_framework'), "<a href='http://svn.wp-plugins.org/$plugin_name'>http://svn.wp-plugins.org/$plugin_name</a>", "<a href='http://wordpress.org/extend/plugins/add/'>Wordpress Repository</a>") ."</p>" ; 
-							} else {													
-								$md5 = md5($plugin_name." to_local") ; 
-								$info_core .=  "<p style='color:#666666;font-size:75%;padding-left:3em;'>" ; 
-								$info_core .= "<img id='wait_svn_".$md5."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
-								$info_core .= "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/arrow-left.png'>&nbsp;" ; 
-								$info_core .= __("Overwrite the local plugin files with files stored the SVN repository", 'SL_framework') ;
-								$info_core .= " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_local_quick\"); return false;'>".__("Quick", 'SL_framework') ."</a>" ;
-								$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_local\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
-								$info_core .=  "</p>" ;
-								
-								$md5 = md5($plugin_name." to_repo") ; 
-								$info_core .=  "<p style='color:#666666;font-size:75%;padding-left:3em;'>" ; 
-								$info_core .= "<img id='wait_svn_".$md5."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
-								$info_core .= "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/arrow-right.png'>&nbsp;" ; 
-								$info_core .= __("Update the SVN repository with your current local plugin files", 'SL_framework') ;
-								$info_core .=  " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo_quick\"); return false;'>".__("Quick", 'SL_framework')."</a>" ; 
-								$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
-								$info_core .=  "</p>" ; 
-								
-								$info_core .=  "<p style='color:#666666;font-size:75%;text-align:right;'>".__("The slow version may be useful if you have issues with the quick version.", 'SL_framework') ."</p>" ; 
-								
+							} else {
+								//
+								$readme_remote = file_get_contents('http://svn.wp-plugins.org/'.$plugin_name.'/trunk/readme.txt' );
+								$readme_local = file_get_contents(WP_PLUGIN_DIR."/".$plugin_name.'/readme.txt' );
+								if ($readme_remote == $readme_local) {
+									$info_core .= "<p style='color:#666666;font-size:85%;'>".__('The SVN repository is identical to your local plugin! You do not need to update...', 'SL_framework')."</p>" ; 
+								} else {
+									$version_update = "" ; 
+									// $action: query_plugins, plugin_information or hot_tags
+									// $req is an object
+									$action = "plugin_information" ; 
+									$req->slug = $plugin_name;
+									$request = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array( 'body' => array('action' => $action, 'request' => serialize($req))) );
+									if ( is_wp_error($request) ) {
+										$version_update = " ".__("(Cannot check the version of the plugin due to HTTP Error occurred during the API request)", "SL_framework") ; 
+									} else {
+										$res = unserialize($request['body']);
+										if ( ! $res ) {
+											$version_update = "" ; 
+										} else {
+											$version_on_wordpress = $res->version ; 
+											
+											if ($version_on_wordpress != $info['Version']) {
+												$version_update = " <b>".sprintf(__("(If you update, a new version will be released, i.e. %s instead of %s)", 'SL_framework' ),$info['Version'], $version_on_wordpress)."</b>" ; 
+											}
+										}
+									}
+									
+									
+									
+									$info_core .= "<p style='color:#660000;font-size:85%;'>".__('The SVN repository is not identical to your local plugin!', 'SL_framework')."</p>" ; 
+									$md5 = md5($plugin_name." to_local") ; 
+									$info_core .=  "<p style='color:#666666;font-size:75%;padding-left:3em;'>" ; 
+									$info_core .= "<img id='wait_svn_".$md5."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
+									$info_core .= "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/arrow-left.png'>&nbsp;" ; 
+									$info_core .= __("Overwrite the local plugin files with files stored the SVN repository", 'SL_framework') ;
+									$info_core .= " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_local_quick\"); return false;'><b>".__("Quick", 'SL_framework') ."</b></a>" ;
+									$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_local\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
+									$info_core .=  "</p>" ;
+									
+									$md5 = md5($plugin_name." to_repo") ; 
+									$info_core .=  "<p style='color:#666666;font-size:75%;padding-left:3em;'>" ; 
+									$info_core .= "<img id='wait_svn_".$md5."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
+									$info_core .= "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/arrow-right.png'>&nbsp;" ; 
+									$info_core .= __("Update the SVN repository with your current local plugin files", 'SL_framework') ;
+									$info_core .= $version_update ; 
+									$info_core .=  " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo_quick\"); return false;'><b>".__("Quick", 'SL_framework')."</b></a>" ; 
+									$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
+									$info_core .=  "</p>" ; 
+									
+									$info_core .=  "<p style='color:#666666;font-size:75%;text-align:right;'>".__("The slow version may be useful if you have issues with the quick version.", 'SL_framework') ."</p>" ; 
+								}
 							}
 						}
 					}
@@ -1627,8 +1659,11 @@ if (!class_exists('pluginSedLex')) {
 			}
 			
 			$content = ob_get_clean() ; 	
-
-			$popup = new popupAdmin($title, $content, "") ; 
+			$current_core_used = str_replace(WP_PLUGIN_DIR."/",'',dirname(__FILE__)) ; 
+			$current_fingerprint_core_used = md5($this->checkCoreOfThePlugin(WP_PLUGIN_DIR."/".$current_core_used."/core.php")) ; 
+			$info = $this->get_plugins_data(WP_PLUGIN_DIR."/".$plugin."/".$plugin.".php");
+								
+			$popup = new popupAdmin($title, $content, "", "coreInfo('corePlugin_".md5($plugin."/".$plugin.".php")."', '".$plugin."/".$plugin.".php', '".$plugin."' , '".$current_core_used."', '".$current_fingerprint_core_used."', '".$info['Author']."')") ; 
 			$popup->render() ; 
 			die() ; 
 		}

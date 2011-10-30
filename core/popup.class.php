@@ -20,7 +20,8 @@ if (!class_exists("popupAdmin")) {
 		* @return void 
 		*/
 		
-		public function popupAdmin($title, $content, $css="") {
+		public function popupAdmin($title, $content, $css="", $callback="") {
+			$this->callback = $callback ; 
 			$this->css = $css ; 
 			$this->title = $title ; 
 			$this->content = $content ; 
@@ -58,6 +59,7 @@ if (!class_exists("popupAdmin")) {
 				if(popupStatus==1){  
 					jQuery("#backgroundPopup").fadeOut("slow", function() { jQuery("#backgroundPopup").remove(); });  
 					jQuery("#popupForm").fadeOut("slow", function() { jQuery("#popupForm").remove(); jQuery("#popupScript2").remove(); jQuery("#popupScript").remove(); } );  
+					<?php echo $this->callback ; ?>
 					popupStatus = 0;  
 				}  
 			} 
