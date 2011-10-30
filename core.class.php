@@ -954,6 +954,7 @@ if (!class_exists('pluginSedLex')) {
 			$current_fingerprint_core_used = $_POST['current_finger'] ;
 		
 			$info_core = $this->checkCoreOfThePlugin(dirname(WP_PLUGIN_DIR.'/'.$url )."/core.php") ; 
+			$hash_plugin = $this->update_hash_plugin(dirname(WP_PLUGIN_DIR."/".$url)) ; 
 
 			if ($current_fingerprint_core_used != md5($info_core)) {
 				$info_core = str_replace('#666666','#660000',$info_core) ;  
@@ -1663,7 +1664,7 @@ if (!class_exists('pluginSedLex')) {
 			$current_fingerprint_core_used = md5($this->checkCoreOfThePlugin(WP_PLUGIN_DIR."/".$current_core_used."/core.php")) ; 
 			$info = $this->get_plugins_data(WP_PLUGIN_DIR."/".$plugin."/".$plugin.".php");
 								
-			$popup = new popupAdmin($title, $content, "", "coreInfo('corePlugin_".md5($plugin."/".$plugin.".php")."', '".$plugin."/".$plugin.".php', '".$plugin."' , '".$current_core_used."', '".$current_fingerprint_core_used."', '".$info['Author']."')") ; 
+			$popup = new popupAdmin($title, $content, "", "coreInfo('corePlugin_".md5($plugin."/".$plugin.".php")."', '".$plugin."/".$plugin.".php', '".$plugin."' , '".$current_core_used."', '".$current_fingerprint_core_used."', '".$info['Author']."') ; ") ; 
 			$popup->render() ; 
 			die() ; 
 		}
