@@ -908,18 +908,6 @@ if (!class_exists('pluginSedLex')) {
 				if ( ! $res ) {
 					echo  "<p>".__('This plugin does not seem to be hosted on the wordpress repository.', 'SL_framework' )."</p>";
 				} else {
-					/*$version_on_wordpress = $res->version ; 
-					if ($version_on_wordpress != $info['Version']) {
-						echo "<p style='color:#660000'>".sprintf(__("This plugin is hosted by wordpress repository and is not up-to-date ! (i.e. %s)", 'SL_framework' ),$version_on_wordpress)." <a href='http://www.wordpress.org/extend/plugins/".$plugin_name."/'>".__('(the repository)', 'SL_framework')."</a></p>" ; 
-					} else {
-						// We search in the FAQ section if the same hash is found
-						if (strpos($res->sections['faq'], $hash_plugin)===false) {
-							echo "<p style='color:#660000'>".sprintf(__("This plugin is hosted by wordpress repository with the same version but the plugin is not exactly the same", 'SL_framework' ),$version_on_wordpress)." <a href='http://www.wordpress.org/extend/plugins/".$plugin_name."/'>".__('(the repository)', 'SL_framework')."</a></p>" ; 
-						} else {
-							echo "<p style='color:#006600'>".sprintf(__("This plugin is hosted by wordpress repository and is up-to-date !", 'SL_framework' ),$version_on_wordpress)." <a href='http://www.wordpress.org/extend/plugins/".$plugin_name."/'>".__('(the repository)', 'SL_framework')."</a></p>" ; 
-						}
-					}
-					echo  "<p>InfoVersion: ".$hash_plugin."</p>" ; */
 					echo  "<p>".__('Last update:', 'SL_framework' )." ".$res->last_updated."</p>";
 					echo  "<div class='inline'>".sprintf(__('Rating: %s', 'SL_framework' ), $res->rating)." &nbsp; &nbsp; </div> " ; 
 					echo "<div class='star-holder inline'>" ; 
@@ -983,6 +971,24 @@ if (!class_exists('pluginSedLex')) {
 								$readme_local = file_get_contents(WP_PLUGIN_DIR."/".$plugin_name.'/readme.txt' );
 								if ($readme_remote == $readme_local) {
 									$info_core .= "<p style='color:#666666;font-size:85%;'>".__('The SVN repository is identical to your local plugin! You do not need to update...', 'SL_framework')."</p>" ; 
+									// $action: query_plugins, plugin_information or hot_tags
+									// $req is an object
+									$action = "plugin_information" ; 
+									$req->slug = $plugin_name;
+									$request = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array( 'body' => array('action' => $action, 'request' => serialize($req))) );
+									if ( is_wp_error($request) ) {
+										$info_core .= "<p style='color:#666666;font-size:75%;padding-left:3em;'>".__("Cannot check the plugin hash due to HTTP Error occurred during the API request", "SL_framework")."</p>" ; 
+									} else {
+										$res = unserialize($request['body']);
+										if ( ! $res ) {
+										} else {
+											// We search in the FAQ section if the same hash is found
+											echo $hash_plugin."@".$res->sections['faq'] ;
+											if (strpos($res->sections['faq'], $hash_plugin)===false) {
+												$info_core .=  "<p style='color:#660000'>".sprintf(__("Please note that the plugin released is not this plugin. If you want to do so, please modify the version in %s", 'SL_framework' ),$url)."</p>" ; 
+											}
+										}
+									}
 								} else {
 									$version_update = "" ; 
 									// $action: query_plugins, plugin_information or hot_tags
@@ -1375,29 +1381,6 @@ if (!class_exists('pluginSedLex')) {
 			$resultat = "" ; 
 			$style = "style='color:#666666;font-size:85%;'" ; 
 			
-			// On regarde le fichier include pour connaitre la version du core
-			if (!file_exists($path)) {
-				$resultat .= "<p ".$style.">".__('Version of','SL_framework')." core.php: ??</p>" ; 
-			} else {
-			
-				$lines = file($path);
-				// On parcourt le tableau $lines et on affiche le contenu de chaque ligne 
-				$ok = false ; 
-				foreach ($lines as $lineNumber => $lineContent) {
-					if (preg_match('/VersionInclude/',  $lineContent)) {
-						$tmp = explode(':',$lineContent) ; 
-						$resultat .= "<p ".$style.">".__('Version of','SL_framework')." 'core.php' : ".trim($tmp[1])."" ; 
-						$ok = true ; 
-						break ; 
-					} 
-				}  
-				if (!$ok) {
-					$resultat .= "<p ".$style.">".__('Version of','SL_framework')." 'core.php' : ??" ; 
-				}
-			}
-			
-			
-			$resultat .= "<hr/>\n" ; 
 			
 			// We compute the hash of the core folder
 			$md5 = Utils::md5_rec(dirname($path).'/core/', array('SL_framework.pot')) ; 
@@ -1436,7 +1419,6 @@ if (!class_exists('pluginSedLex')) {
 			$temp_time = $year.'-'.$month.'-'.$day.' '.$hour.':'. $min.':' .$sec ; 
 			$time = strtotime($temp_time) ; 
 			
-			$resultat .= "<p ".$style.">".__('MD5 fingerprint of the framework:','SL_framework')." $md5</p>" ; 
 			$resultat .= "<p ".$style.">".sprintf(__('Last update of the core: %s at %s','SL_framework'), "<b>".date("d M Y",$time)."</b>", "<b>".date("H:i:s",$time))."</b></p>" ; 
 
 			return $resultat ; 
