@@ -908,6 +908,7 @@ if (!class_exists('pluginSedLex')) {
 				if ( ! $res ) {
 					echo  "<p>".__('This plugin does not seem to be hosted on the wordpress repository.', 'SL_framework' )."</p>";
 				} else {
+					echo "<p>".sprintf(__('The Wordpress page: %s', 'SL_framework'),"<a href='http://wordpress.org/extend/plugins/$plugin_name'>http://wordpress.org/extend/plugins/$plugin_name</a>")."</p>" ; 
 					echo  "<p>".__('Last update:', 'SL_framework' )." ".$res->last_updated."</p>";
 					echo  "<div class='inline'>".sprintf(__('Rating: %s', 'SL_framework' ), $res->rating)." &nbsp; &nbsp; </div> " ; 
 					echo "<div class='star-holder inline'>" ; 
@@ -957,6 +958,7 @@ if (!class_exists('pluginSedLex')) {
 					if (preg_match("/".get_option('SL_framework_SVN_author', "")."/i", $author)) {
 						$info_core .= "<hr/>" ; 
 						$info_core .= "<div><img style='border:0px' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/SVN.png' height='24px'><b>".__("SVN management", 'SL_framework')."</b></div>"; 
+						$info_core .= "<p style='color:#666666;font-size:85%;'>".sprintf(__('The SVN repository: %s', 'SL_framework'),"<a href='http://svn.wp-plugins.org/$plugin_name'>http://svn.wp-plugins.org/$plugin_name</a>")."</p>" ; 
 						// We check if the repository exists
 						
 						$request = wp_remote_get('http://svn.wp-plugins.org/'.$plugin_name );
@@ -966,31 +968,13 @@ if (!class_exists('pluginSedLex')) {
 							if ($request['response']['code']!='200') {
 								$info_core .= "<p>".sprintf(__("You do not seem to have a repository for Wordpress because %s returns a 404 error. Thus, ask for one here: %s", 'SL_framework'), "<a href='http://svn.wp-plugins.org/$plugin_name'>http://svn.wp-plugins.org/$plugin_name</a>", "<a href='http://wordpress.org/extend/plugins/add/'>Wordpress Repository</a>") ."</p>" ; 
 							} else {
-								//
 								$readme_remote = file_get_contents('http://svn.wp-plugins.org/'.$plugin_name.'/trunk/readme.txt' );
 								$readme_local = file_get_contents(WP_PLUGIN_DIR."/".$plugin_name.'/readme.txt' );
 								if ($readme_remote == $readme_local) {
 									$info_core .= "<p style='color:#666666;font-size:85%;'>".__('The SVN repository is identical to your local plugin! You do not need to update...', 'SL_framework')."</p>" ; 
-									// $action: query_plugins, plugin_information or hot_tags
-									// $req is an object
-									$action = "plugin_information" ; 
-									$req->slug = $plugin_name;
-									$request = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array( 'body' => array('action' => $action, 'request' => serialize($req))) );
-									if ( is_wp_error($request) ) {
-										$info_core .= "<p style='color:#666666;font-size:75%;padding-left:3em;'>".__("Cannot check the plugin hash due to HTTP Error occurred during the API request", "SL_framework")."</p>" ; 
-									} else {
-										$res = unserialize($request['body']);
-										if ( ! $res ) {
-										} else {
-											// We search in the FAQ section if the same hash is found
-											echo $hash_plugin."@".$res->sections['faq'] ;
-											if (strpos($res->sections['faq'], $hash_plugin)===false) {
-												$info_core .=  "<p style='color:#660000'>".sprintf(__("Please note that the plugin released is not this plugin. If you want to do so, please modify the version in %s", 'SL_framework' ),$url)."</p>" ; 
-											}
-										}
-									}
 								} else {
 									$version_update = "" ; 
+									$version_update_bool = false ; 
 									// $action: query_plugins, plugin_information or hot_tags
 									// $req is an object
 									$action = "plugin_information" ; 
@@ -1007,11 +991,10 @@ if (!class_exists('pluginSedLex')) {
 											
 											if ($version_on_wordpress != $info['Version']) {
 												$version_update = " <b>".sprintf(__("(If you update, a new version will be released, i.e. %s instead of %s)", 'SL_framework' ),$info['Version'], $version_on_wordpress)."</b>" ; 
+												$version_update_bool = true ; 
 											}
 										}
 									}
-									
-									
 									
 									$info_core .= "<p style='color:#660000;font-size:85%;'>".__('The SVN repository is not identical to your local plugin!', 'SL_framework')."</p>" ; 
 									$md5 = md5($plugin_name." to_local") ; 
@@ -1027,10 +1010,14 @@ if (!class_exists('pluginSedLex')) {
 									$info_core .=  "<p style='color:#666666;font-size:75%;padding-left:3em;'>" ; 
 									$info_core .= "<img id='wait_svn_".$md5."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
 									$info_core .= "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/arrow-right.png'>&nbsp;" ; 
-									$info_core .= __("Update the SVN repository with your current local plugin files", 'SL_framework') ;
-									$info_core .= $version_update ; 
-									$info_core .=  " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo_quick\"); return false;'><b>".__("Quick", 'SL_framework')."</b></a>" ; 
-									$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
+									if ($version_update_bool) {
+										$info_core .= __("Update the SVN repository with your current local plugin files", 'SL_framework') ;
+										$info_core .= $version_update ; 
+										$info_core .=  " (<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo_quick\"); return false;'><b>".__("Quick", 'SL_framework')."</b></a>" ; 
+										$info_core .=  "|<a href='#' onClick='showSvnPopup(\"".$md5."\", \"".$plugin_name."\", \"to_repo\"); return false;'>".__("Slow", 'SL_framework')."</a>)" ; 
+									} else {
+										$info_core .= " <b>".sprintf(__("Please modify the Version in %s in order to be allowed to commit it", 'SL_framework' ), "<em>".$url."</em>")."</b>" ; 								
+									}
 									$info_core .=  "</p>" ; 
 									
 									$info_core .=  "<p style='color:#666666;font-size:75%;text-align:right;'>".__("The slow version may be useful if you have issues with the quick version.", 'SL_framework') ."</p>" ; 

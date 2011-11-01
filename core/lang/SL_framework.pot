@@ -172,326 +172,331 @@ msgstr ""
 
 #: core.class.php:911
 #@ SL_framework
-msgid "Last update:"
+msgid "The Wordpress page: %s"
 msgstr ""
 
 #: core.class.php:912
 #@ SL_framework
+msgid "Last update:"
+msgstr ""
+
+#: core.class.php:913
+#@ SL_framework
 msgid "Rating: %s"
 msgstr ""
 
-#: core.class.php:921
+#: core.class.php:922
 #@ SL_framework
 msgid "by %s persons"
 msgstr ""
 
-#: core.class.php:923
+#: core.class.php:924
 #@ SL_framework
 msgid "Number of download:"
 msgstr ""
 
-#: core.class.php:949
+#: core.class.php:950
 #@ SL_framework
 msgid "Update with the core of the %s plugin (only if you definitely know what you do)"
 msgstr ""
 
-#: core.class.php:959
+#: core.class.php:960
 #@ SL_framework
 msgid "SVN management"
 msgstr ""
 
-#: core.class.php:964
+#: core.class.php:961
+#@ SL_framework
+msgid "The SVN repository: %s"
+msgstr ""
+
+#: core.class.php:966
 #@ SL_framework
 msgid "An error occurs when requesting %s"
 msgstr ""
 
-#: core.class.php:967
+#: core.class.php:969
 #@ SL_framework
 msgid "You do not seem to have a repository for Wordpress because %s returns a 404 error. Thus, ask for one here: %s"
 msgstr ""
 
-#: core.class.php:973
+#: core.class.php:974
 #@ SL_framework
 msgid "The SVN repository is identical to your local plugin! You do not need to update..."
 msgstr ""
 
-#: core.class.php:980
-#@ SL_framework
-msgid "Cannot check the plugin hash due to HTTP Error occurred during the API request"
-msgstr ""
-
-#: core.class.php:988
-#@ SL_framework
-msgid "Please note that the plugin released is not this plugin. If you want to do so, please modify the version in %s"
-msgstr ""
-
-#: core.class.php:1000
+#: core.class.php:984
 #@ SL_framework
 msgid "(Cannot check the version of the plugin due to HTTP Error occurred during the API request)"
 msgstr ""
 
-#: core.class.php:1009
+#: core.class.php:993
 #@ SL_framework
 msgid "(If you update, a new version will be released, i.e. %s instead of %s)"
 msgstr ""
 
-#: core.class.php:1016
+#: core.class.php:999
 #@ SL_framework
 msgid "The SVN repository is not identical to your local plugin!"
 msgstr ""
 
-#: core.class.php:1021
+#: core.class.php:1004
 #@ SL_framework
 msgid "Overwrite the local plugin files with files stored the SVN repository"
 msgstr ""
 
-#: core.class.php:1022
-#: core.class.php:1032
+#: core.class.php:1005
+#: core.class.php:1016
 #@ SL_framework
 msgid "Quick"
 msgstr ""
 
-#: core.class.php:1023
-#: core.class.php:1033
+#: core.class.php:1006
+#: core.class.php:1017
 #@ SL_framework
 msgid "Slow"
 msgstr ""
 
-#: core.class.php:1030
+#: core.class.php:1014
 #@ SL_framework
 msgid "Update the SVN repository with your current local plugin files"
 msgstr ""
 
-#: core.class.php:1036
+#: core.class.php:1019
+#@ SL_framework
+msgid "Please modify the Version in %s in order to be allowed to commit it"
+msgstr ""
+
+#: core.class.php:1023
 #@ SL_framework
 msgid "The slow version may be useful if you have issues with the quick version."
 msgstr ""
 
-#: core.class.php:1208
+#: core.class.php:1195
 #@ SL_framework
 msgid "Please find hearafter all the possible classes and methods for the development with this framework"
 msgstr ""
 
-#: core.class.php:1223
+#: core.class.php:1210
 #@ SL_framework
 msgid "[CLASS]"
 msgstr ""
 
-#: core.class.php:1231
+#: core.class.php:1218
 #@ SL_framework
 msgid "Here is the method of the class:"
 msgstr ""
 
-#: core.class.php:1245
+#: core.class.php:1232
 #@ SL_framework
 msgid "[METHOD]"
 msgstr ""
 
-#: core.class.php:1248
+#: core.class.php:1235
 #@ SL_framework
 msgid "Description:"
 msgstr ""
 
-#: core.class.php:1263
-#: core.class.php:1289
+#: core.class.php:1250
+#: core.class.php:1276
 #@ SL_framework
 msgid "Parameters:"
 msgstr ""
 
-#: core.class.php:1273
+#: core.class.php:1260
 #@ SL_framework
 msgid "[optional]"
 msgstr ""
 
-#: core.class.php:1273
+#: core.class.php:1260
 #@ SL_framework
 msgid "(by default, its value is:"
 msgstr ""
 
-#: core.class.php:1289
+#: core.class.php:1276
 #@ SL_framework
 msgid "No param"
 msgstr ""
 
-#: core.class.php:1296
+#: core.class.php:1283
 #@ SL_framework
 msgid "Return value:"
 msgstr ""
 
-#: core.class.php:1302
+#: core.class.php:1289
 #@ SL_framework
 msgid "Typical call:"
 msgstr ""
 
-#: core.class.php:1307
+#: core.class.php:1294
 #@ SL_framework
 msgid "See also:"
 msgstr ""
 
-#: core.class.php:1422
+#: core.class.php:1409
 #@ SL_framework
 msgid "Last update of the core: %s at %s"
 msgstr ""
 
-#: core.class.php:1473
+#: core.class.php:1460
 #@ SL_framework
 msgid "The folder %s is not %s !"
 msgstr ""
 
-#: core.class.php:1475
+#: core.class.php:1462
 #@ SL_framework
 msgid "The file %s is not %s !"
 msgstr ""
 
-#: core.class.php:1482
-#: core.class.php:1488
+#: core.class.php:1469
+#: core.class.php:1475
 #@ SL_framework
 msgid "The folder %s does not exists and cannot be created !"
 msgstr ""
 
-#: core.class.php:1493
+#: core.class.php:1480
 #@ SL_framework
 msgid "The file %s does not exists and cannot be created !"
 msgstr ""
 
-#: core.class.php:1500
+#: core.class.php:1487
 #@ SL_framework
 msgid "There are some issues with folders rights. Please corret them as soon as possible as they could induce bugs and instabilities."
 msgstr ""
 
-#: core.class.php:1500
+#: core.class.php:1487
 #@ SL_framework
 msgid "Please see below:"
 msgstr ""
 
-#: core.class.php:1519
+#: core.class.php:1506
 #@ SL_framework
 msgid "Update the SVN repository %s with your current local plugin files (slower version)"
 msgstr ""
 
-#: core.class.php:1522
+#: core.class.php:1509
 #@ SL_framework
 msgid "Update the SVN repository %s with your current local plugin files"
 msgstr ""
 
-#: core.class.php:1525
+#: core.class.php:1512
 #@ SL_framework
 msgid "Overwrite the local plugin %s files with files stored the SVN repository"
 msgstr ""
 
-#: core.class.php:1543
-#: core.class.php:1589
+#: core.class.php:1530
+#: core.class.php:1576
 #@ SL_framework
 msgid "Updating the local cache"
 msgstr ""
 
-#: core.class.php:1550
-#: core.class.php:1607
+#: core.class.php:1537
+#: core.class.php:1594
 #@ SL_framework
 msgid "folder created"
 msgstr ""
 
-#: core.class.php:1552
-#: core.class.php:1609
+#: core.class.php:1539
+#: core.class.php:1596
 #@ SL_framework
 msgid "folder creation has failed !"
 msgstr ""
 
-#: core.class.php:1556
-#: core.class.php:1673
+#: core.class.php:1543
+#: core.class.php:1660
 #@ SL_framework
 msgid "%s bytes transfered"
 msgstr ""
 
-#: core.class.php:1577
+#: core.class.php:1564
 #@ SL_framework
 msgid "An error occurred during the retrieval of files on the server ! Sorry ..."
 msgstr ""
 
-#: core.class.php:1590
+#: core.class.php:1577
 #@ SL_framework
 msgid "To be sure that you compare the local plugin with the latest repoository files, it is necessary to download it locally. Please wait during the update (your are using the slow version which may be more reliable especially with big plugins)..."
 msgstr ""
 
-#: core.class.php:1596
+#: core.class.php:1583
 #@ SL_framework
 msgid "Update of the files of the %s plugin in progress (%s files)"
 msgstr ""
 
-#: core.class.php:1636
+#: core.class.php:1623
 #@ SL_framework
 msgid "An error occurred when listing the files of the %s plugin ! Sorry ..."
 msgstr ""
 
-#: core.class.php:1697
-#: core.class.php:1734
+#: core.class.php:1684
+#: core.class.php:1721
 #@ SL_framework
 msgid "Browsing the modifications"
 msgstr ""
 
-#: core.class.php:1698
-#: core.class.php:1735
+#: core.class.php:1685
+#: core.class.php:1722
 #@ SL_framework
 msgid "Comparing %s with %s"
 msgstr ""
 
-#: core.class.php:1705
-#: core.class.php:1742
+#: core.class.php:1692
+#: core.class.php:1729
 #@ SL_framework
 msgid "Confirmation"
 msgstr ""
 
-#: core.class.php:1707
+#: core.class.php:1694
 #@ SL_framework
 msgid "Commit comment:"
 msgstr ""
 
-#: core.class.php:1709
+#: core.class.php:1696
 #@ SL_framework
 msgid "Yes, the SVN version will be deleted and be replaced by the local version"
 msgstr ""
 
-#: core.class.php:1744
+#: core.class.php:1731
 #@ SL_framework
 msgid "Yes, the local version will be overwritten with the repository files"
 msgstr ""
 
-#: core.class.php:1769
+#: core.class.php:1756
 #@ SL_framework
 msgid "Sending to the repository in progress..."
 msgstr ""
 
-#: core.class.php:1778
+#: core.class.php:1765
 #@ SL_framework
 msgid "Preparation of the sending done !"
 msgstr ""
 
-#: core.class.php:1864
+#: core.class.php:1851
 #@ SL_framework
 msgid "Sending the file is finished ! Now merging the change in the repository ..."
 msgstr ""
 
-#: core.class.php:1878
+#: core.class.php:1865
 #@ SL_framework
 msgid "Error while preparing the sending!"
 msgstr ""
 
-#: core.class.php:1988
+#: core.class.php:1975
 #@ SL_framework
 msgid "The commit has ended [ %s ]... You should received an email quickly !"
 msgstr ""
 
-#: core.class.php:1990
+#: core.class.php:1977
 #@ SL_framework
 msgid "The commit has ended but there is an error!"
 msgstr ""
 
-#: core.class.php:2009
+#: core.class.php:1996
 #@ SL_framework
 msgid "Sending to the local files in progress..."
 msgstr ""
 
-#: core.class.php:2072
+#: core.class.php:2059
 #@ SL_framework
 msgid "The rollback has ended ..."
 msgstr ""
@@ -730,6 +735,17 @@ msgstr ""
 #: core/translation.class.php:820
 #@ SL_framework
 msgid "%s file has been created from this file"
+msgstr ""
+
+#: core/translation.class.php:840
+#: core/translation.class.php:844
+#@ SL_framework
+msgid "If you do not want to loose your translations on the next upgrading of this plugin, it is recommended to send the translation files to the author by clicking %s here %s !"
+msgstr ""
+
+#: core/translation.class.php:847
+#@ SL_framework
+msgid "If you do not want to loose your translations on the next upgrading of this plugin, please save them on your hard disk before upgrading and then restore them after the upgrade !"
 msgstr ""
 
 #: core/folder_diff.class.php:139
