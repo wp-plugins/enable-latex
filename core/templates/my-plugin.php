@@ -40,7 +40,7 @@ class my_plugin extends pluginSedLex {
 		$this->pluginName = 'My Plugin' ; 
 		
 		// The structure of the SQL table if needed (for instance, 'id_post mediumint(9) NOT NULL, short_url TEXT DEFAULT '', UNIQUE KEY id_post (id_post)') 
-		$this->table_sql = '' ; 
+		$this->tableSQL = '' ; 
 		// The name of the SQL table (Do no modify except if you know what you do)
 		$this->table_name = $wpdb->prefix . "pluginSL_" . get_class() ; 
 

@@ -50,6 +50,9 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 
 == Changelog ==
 
+= 1.1.2 =
+* Update to remove potential bug
+
 = 1.1.1 =
 * Update of the core and adding few translations
 
@@ -86,4 +89,4 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:1f25296f056ff31002a50001eac4e144
+InfoVersion:2cc7241da3b505160743451fc0ecd181

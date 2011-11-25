@@ -4,6 +4,11 @@
 * VersionInclude : 3.0
 */ 
 
+/* Prevent direct access to this file */
+if (!defined('ABSPATH')) {
+	exit("Sorry, you are not allowed to access this file directly.");
+}
+
 if (!class_exists('pluginSedLex')) {
 
 	$sedlex_list_scripts = array() ; 
@@ -16,7 +21,7 @@ if (!class_exists('pluginSedLex')) {
 	* @abstract
 	*/
 	abstract class pluginSedLex {
-	
+	 
 		protected $pluginID = '';
 		protected $pluginName = '';
 		protected $signature = '';
@@ -216,7 +221,13 @@ if (!class_exists('pluginSedLex')) {
 			if (method_exists($this,'_notify')) {
 				$number = $this->_notify() ; 
 				if (is_numeric($number)) {
-					$number = "<span class='update-plugins count-1' title='title'><span class='update-count'>".$number."</span></span>" ; 
+					if ($number>0) {
+						$number = "<span class='update-plugins count-1' title='title'><span class='update-count'>".$number."</span></span>" ; 
+					} else {
+						$number = "" ; 
+					}
+				} else {
+					$number = "" ; 
 				}
 			}
 			$page = add_submenu_page($topLevel, $this->pluginName, $this->pluginName . $number, 10, $plugin, array($this,'configuration_page'));
@@ -583,7 +594,7 @@ if (!class_exists('pluginSedLex')) {
 		* @return void
 		*/
 		function sedlex_information() {
-			echo "<a name='top'></a>" ; 
+			
 			global $submenu;
 			if (isset($_POST['showhide_advanced'])) {
 				if ($_POST['show_advanced']=="true") {
@@ -628,6 +639,7 @@ if (!class_exists('pluginSedLex')) {
 			if (isset($_GET['download'])) {
 				$this->getPluginZip($_GET['download']) ; 
 			}
+			echo "<a name='top'></a>" ; 
 			$current_core_used = str_replace(WP_PLUGIN_DIR."/",'',dirname(__FILE__)) ; 
 			
 			if (get_option('SL_framework_show_advanced', false)){
@@ -968,8 +980,8 @@ if (!class_exists('pluginSedLex')) {
 							if ($request['response']['code']!='200') {
 								$info_core .= "<p>".sprintf(__("You do not seem to have a repository for Wordpress because %s returns a 404 error. Thus, ask for one here: %s", 'SL_framework'), "<a href='http://svn.wp-plugins.org/$plugin_name'>http://svn.wp-plugins.org/$plugin_name</a>", "<a href='http://wordpress.org/extend/plugins/add/'>Wordpress Repository</a>") ."</p>" ; 
 							} else {
-								$readme_remote = file_get_contents('http://svn.wp-plugins.org/'.$plugin_name.'/trunk/readme.txt' );
-								$readme_local = file_get_contents(WP_PLUGIN_DIR."/".$plugin_name.'/readme.txt' );
+								$readme_remote = @file_get_contents('http://svn.wp-plugins.org/'.$plugin_name.'/trunk/readme.txt' );
+								$readme_local = @file_get_contents(WP_PLUGIN_DIR."/".$plugin_name.'/readme.txt' );
 								if ($readme_remote == $readme_local) {
 									$info_core .= "<p style='color:#666666;font-size:85%;'>".__('The SVN repository is identical to your local plugin! You do not need to update...', 'SL_framework')."</p>" ; 
 								} else {
@@ -986,6 +998,8 @@ if (!class_exists('pluginSedLex')) {
 										$res = unserialize($request['body']);
 										if ( ! $res ) {
 											$version_update = "" ; 
+											$version_on_wordpress = "0.0" ; 
+											$version_update_bool = true ; 
 										} else {
 											$version_on_wordpress = $res->version ; 
 											

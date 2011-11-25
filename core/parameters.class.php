@@ -28,7 +28,7 @@ if (!class_exists("parametersSedLex")) {
 		*/
 		
 		function parametersSedLex($obj, $tab="") {
-			$this->output = "<div class='wrap parameters'><form method='post' action='".$_SERVER["REQUEST_URI"]."#".$tab."'>\n" ; 
+			$this->output = "<div class='wrap parameters'><form enctype='multipart/form-data' method='post' action='".$_SERVER["REQUEST_URI"]."#".$tab."'>\n" ; 
 			$this->maj = false ; 
 			$this->modified = false ;
 			$this->error = false ; 
@@ -73,7 +73,7 @@ if (!class_exists("parametersSedLex")) {
 		/** ====================================================================================================================================================
 		* Add a textarea, input, checkbox, etc. in the form to enable the modification of parameter of the plugin
 		* 	
-		* Please note that the default value of the parameter (defined in the  <code>get_default_option</code> function) will define the type of input form. If the default  value is a: <br/>&nbsp; &nbsp; &nbsp; - string, the input form will be an input text <br/>&nbsp; &nbsp; &nbsp; - integer, the input form will be an input text accepting only integer <br/>&nbsp; &nbsp; &nbsp; - string beggining with a '*', the input form will be a textarea <br/>&nbsp; &nbsp; &nbsp; - boolean, the input form will be a checkbox 
+		* Please note that the default value of the parameter (defined in the  <code>get_default_option</code> function) will define the type of input form. If the default  value is a: <br/>&nbsp; &nbsp; &nbsp; - string, the input form will be an input text <br/>&nbsp; &nbsp; &nbsp; - integer, the input form will be an input text accepting only integer <br/>&nbsp; &nbsp; &nbsp; - string beggining with a '*', the input form will be a textarea <br/>&nbsp; &nbsp; &nbsp; - string equals to '[file]$path', the input form will be a file input and the file will be stored at $path (relative to the upload folder)<br/>&nbsp; &nbsp; &nbsp; - boolean, the input form will be a checkbox 
 		*
 		* @param string $param the name of the parameter/option as defined in your plugin and especially in the <code>get_default_option</code> of your plugin
 		* @param string $name the displayed name of the parameter in the form
@@ -84,6 +84,8 @@ if (!class_exists("parametersSedLex")) {
 
 		function add_param($param, $name, $forbid="", $allow="")  {
 			global $_POST ; 
+			global $_FILES ; 
+			
 			ob_start();
 			if (!$this->hastobeclosed) {
 				?>
@@ -101,6 +103,10 @@ if (!class_exists("parametersSedLex")) {
 			// C'est un text si dans le texte par defaut, il y a une etoile
 			if (is_string($this->obj->get_default_option($param))) {
 				if (str_replace("*","",$this->obj->get_default_option($param)) != $this->obj->get_default_option($param)) $type = "text" ; 
+			}
+			// C'est un file si dans le texte par defaut est egal a [file]
+			if (is_string($this->obj->get_default_option($param))) {
+				if (str_replace("[file]","",$this->obj->get_default_option($param)) != $this->obj->get_default_option($param)) $type = "file" ; 
 			}
 			
 			// On met a jour la variable
@@ -168,6 +174,41 @@ if (!class_exists("parametersSedLex")) {
 					if ($array2 != $array) {
 						$this->obj->set_param($param, $array) ; 
 						$this->modified = true ; 
+					}
+				} 
+				
+				// Est ce que c'est bien une liste
+				if ($type=="file") {
+					// deleted ?
+					$upload_dir = wp_upload_dir();
+					$deleted = $_POST["delete_".$param] ; 
+					if ($deleted=="1") {
+						if (file_exists($upload_dir["basedir"].$this->obj->get_param($param))){
+							@unlink($upload_dir["basedir"].$this->obj->get_param($param)) ; 
+						}
+						$this->obj->set_param($param, $this->obj->get_default_option($param)) ; 
+						$this->modified = true ; 
+					}
+					
+					$tmp = $_FILES[$param]['tmp_name'] ; 
+					if ($tmp != "") {
+						if ($_FILES[$param]["error"] > 0) {
+							$problem_e .= "<p>".__('Error: the submitted file can not be uploaded', 'SL_framework')." (".$allow.")!</p>\n" ; 
+						} else {
+							if (is_uploaded_file($_FILES[$param]['tmp_name'])) {
+								$upload_dir = wp_upload_dir();
+								$path = $upload_dir["basedir"].str_replace("[file]","", $this->obj->get_default_option($param)) ; 
+								@mkdir($path, 0777, true) ; 
+								if (file_exists($path . $_FILES[$param]["name"])){
+									$problem_e .= "<p>".sprintf(__('Error: %s file already exists', 'SL_framework'), "<em>".$_FILES[$param]["name"]."</em>")."</p>\n" ; 
+									$this->error = true ; 
+								} else {
+									move_uploaded_file($_FILES[$param]["tmp_name"], $path . $_FILES[$param]["name"]);
+									$this->obj->set_param($param, str_replace("[file]","", $this->obj->get_default_option($param).  $_FILES[$param]["name"])) ; 
+									$this->modified = true ; 
+								}
+							}
+						}
 					}
 				} 
 			}
@@ -297,6 +338,75 @@ if (!class_exists("parametersSedLex")) {
 						</select>
 					</td>
 				</tr>
+			<?php
+			}
+			
+			if ($type=="file") {
+			?>
+				<tr valign="top">
+					<th scope="row"><label for='<?php echo $param ; ?>'><?php echo $name ; ?></label></th>
+					<td>
+						<?php	
+						$upload_dir = wp_upload_dir();
+						if (!file_exists($upload_dir["basedir"].$this->obj->get_param($param))) {
+							$this->obj->set_param($param,$this->obj->get_default_option($param)) ; 
+						}
+						if ($this->obj->get_default_option($param)==$this->obj->get_param($param)) {
+						?>
+						<input type='file' name='<?php echo $param ; ?>' id='<?php echo $param ; ?>'/>
+						<?php 
+						} else {
+							
+							$path = $upload_dir["baseurl"].$this->obj->get_param($param) ; 
+							$pathdir = $upload_dir["basedir"].$this->obj->get_param($param) ; 
+							$info = pathinfo($pathdir) ; 
+							if ((strtolower($info['extension'])=="png") || (strtolower($info['extension'])=="gif") || (strtolower($info['extension'])=="jpg") ||(strtolower($info['extension'])=="bmp")) {
+								list($width, $height) =  getimagesize($pathdir) ; 
+								$max_width = 100;
+								$max_height = 100; 
+								$ratioh = $max_height/$height;
+								$ratiow = $max_width/$width;
+								$ratio = min($ratioh, $ratiow);
+								// New dimensions
+								$width = min(intval($ratio*$width), $width);
+								$height = min(intval($ratio*$height), $height);  
+						?>
+						<p><img src='<?php echo $path; ?>' width="<?php echo $width?>px" height="<?php echo $height?>px" style="vertical-align:middle;"/> <a href="<?php echo $path ; ?>"><?php echo $this->obj->get_param($param) ; ?></a></p>
+						<?php 								
+							} else {
+						?>
+						<p><img src='<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__))."img/file.png" ; ?>' width="75px" style="vertical-align:middle;"/> <a href="<?php echo $path ; ?>"><?php echo $this->obj->get_param($param) ; ?></a></p>
+						<?php 
+							}
+						?>
+						<p><?php echo sprintf(__("(If you want to delete this file, please check this box %s)", "SL_framework"), "<input type='checkbox'  name='delete_".$param."' value='1' id='delete_".$param."'>") ; ?>
+						<?php 
+						}
+						?>
+				
+						</select>
+					</td>
+				</tr>
+				<?php
+				if ($problem_e!="") {	
+				?>
+				<tr valign="top">
+					<td colspan="2">
+						<div class="errorSedLex"><?php echo $problem_e ; ?></div>
+					</td>
+				</tr>
+				<?php
+				}
+				if ($problem_w!="") {	
+				?>
+				<tr valign="top">
+					<td colspan="2">
+						<div class="warningSedLex"><?php echo $problem_w ; ?></div>
+					</td>
+				</tr>
+				<?php
+				}
+				?>	
 			<?php
 			}
 
