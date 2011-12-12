@@ -2,7 +2,7 @@
 /*
 Plugin Name: Enable Latex
 Description: <p>Enable the insertion of LaTeX formula in your post.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: <ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul></p><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-latex/">WP-LaTeX</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.1.2
+Version: 1.1.3
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -102,7 +102,6 @@ class enableLatex extends pluginSedLex {
 			$tabs = new adminTabs() ; 
 			
 			ob_start() ; 
-				echo "<p>".__('Here is the parameters of the plugin. Please modify them at your convenience.',$this->pluginID)."</p>" ; 
 				$params = new parametersSedLex($this, 'tab-parameters') ; 
 				$params->add_title(__('Do you want to change the style of the image displayed for Latex formula:',$this->pluginID)) ; 
 				$params->add_param('css', __('The style:',$this->pluginID)) ; 
@@ -120,27 +119,25 @@ class enableLatex extends pluginSedLex {
 				$params->add_param('cache', __('Cache enabled:',$this->pluginID)) ; 
 				$params->flush() ; 
 					
-			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() ) ; 	
+			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 			
 			
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new translationSL($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
-			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() ) ; 	
+			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
-				echo __('This form is an easy way to contact the author and to discuss issues / incompatibilities / etc.',  $this->pluginID) ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new feedbackSL($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
-			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() ) ; 	
+			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 
 			ob_start() ; 
-				echo "<p>".__('Here is the plugins developped by the author',  $this->pluginID) ."</p>" ; 
 				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
-			$tabs->add_tab(__('Other possible plugins',  $this->pluginID), ob_get_clean() ) ; 	
+			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
 			echo $tabs->flush() ; 
 			

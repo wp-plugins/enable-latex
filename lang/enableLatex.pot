@@ -5,92 +5,68 @@ Content-Transfer-Encoding: 8bit
 msgid "This plugin will enable LaTeX formula in posts and pages."
 msgstr ""
 
-#: enable-latex.php:105
-#@ enableLatex
-msgid "Here is the parameters of the plugin. Please modify them at your convenience."
-msgstr ""
-
-#: enable-latex.php:107
+#: enable-latex.php:106
 #@ enableLatex
 msgid "Do you want to change the style of the image displayed for Latex formula:"
 msgstr ""
 
-#: enable-latex.php:108
+#: enable-latex.php:107
 #@ enableLatex
 msgid "The style:"
 msgstr ""
 
-#: enable-latex.php:109
+#: enable-latex.php:108
 #@ enableLatex
 msgid "The standard CSS is:"
 msgstr ""
 
-#: enable-latex.php:115
+#: enable-latex.php:114
 #@ enableLatex
 msgid "What is the color:"
 msgstr ""
 
-#: enable-latex.php:116
+#: enable-latex.php:115
 #@ enableLatex
 msgid "For the font:"
 msgstr ""
 
-#: enable-latex.php:117
+#: enable-latex.php:116
 #@ enableLatex
 msgid "For the background:"
 msgstr ""
 
-#: enable-latex.php:118
+#: enable-latex.php:117
 #@ enableLatex
 msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
 msgstr ""
 
-#: enable-latex.php:119
+#: enable-latex.php:118
 #@ enableLatex
 msgid "Do you want to cache the images on the local disk?"
 msgstr ""
 
-#: enable-latex.php:120
+#: enable-latex.php:119
 #@ enableLatex
 msgid "Cache enabled:"
 msgstr ""
 
-#: enable-latex.php:123
+#: enable-latex.php:122
 #@ enableLatex
 msgid "Parameters"
 msgstr ""
 
-#: enable-latex.php:130
-#: core/templates/my-plugin.php:227
+#: enable-latex.php:129
 #@ enableLatex
 msgid "Manage translations"
 msgstr ""
 
-#: enable-latex.php:133
-#: core/templates/my-plugin.php:230
-#@ enableLatex
-msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
-msgstr ""
-
-#: enable-latex.php:137
-#: core/templates/my-plugin.php:234
+#: enable-latex.php:135
 #@ enableLatex
 msgid "Give feedback"
 msgstr ""
 
 #: enable-latex.php:140
 #@ enableLatex
-msgid "Here is the plugins developped by the author"
-msgstr ""
-
-#: enable-latex.php:143
-#: core/templates/my-plugin.php:243
-#@ enableLatex
-msgid "Other possible plugins"
-msgstr ""
-
-#: core/templates/my-plugin.php:237
-#@ enableLatex
-msgid "Here is the plugins developped by the author:"
+msgid "Other plugins"
 msgstr ""
 

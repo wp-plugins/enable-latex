@@ -14,7 +14,7 @@ Enable the insertion of LaTeX formula in your post
 
 Enable the insertion of LaTeX formula in your post.
 
-Just type (for instance) [latex]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type (for instance) [latex]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
 You can configure:
 
@@ -49,6 +49,9 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.1.3 =
+* Improve the English text thanks to Rene 
 
 = 1.1.2 =
 * Update to remove potential bug
@@ -89,4 +92,4 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:2cc7241da3b505160743451fc0ecd181
+InfoVersion:cc28fc597e23bb087a47267cf3681657

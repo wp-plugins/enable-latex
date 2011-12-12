@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-09-20T11:51:46+00:00\n"
+"PO-Revision-Date: 2011-12-12T14:25:24+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,6 @@ msgstr ""
 
 msgid "This plugin will enable LaTeX formula in posts and pages."
 msgstr "Ce plugin permettra de rédiger des formules LaTeX dans vos articles et vos pages."
-
-msgid "Here is the parameters of the plugin. Please modify them at your convenience."
-msgstr "Voici les paramètres du plugin. Vous pouvez les modifier comme vous le souhaitez."
 
 msgid "Do you want to change the style of the image displayed for Latex formula:"
 msgstr "Voulez-vous modifier le style des images affichées pour les formules LaTeX ?"
@@ -59,18 +56,9 @@ msgstr "Paramètres"
 msgid "Manage translations"
 msgstr "Gérer les traductions"
 
-msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
-msgstr "Ce formulaire vous permet de contacter simplement l&#039;auteur afin de discuter de vos problèmes / d&#039;incompatibilités / etc."
-
 msgid "Give feedback"
 msgstr "Donner un feedback"
 
-msgid "Here is the plugins developped by the author"
-msgstr "Voici les plugins développés par l&#039;auteur"
-
-msgid "Other possible plugins"
-msgstr "Autres plugins possibles"
-
-msgid "Here is the plugins developped by the author:"
-msgstr "Voici les plugins développés par l&#039;auteur :"
+msgid "Other plugins"
+msgstr "Autres plugins"
 
