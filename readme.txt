@@ -1,39 +1,49 @@
 === Enable Latex ===
 
-Contributors: SedLex
 Author: SedLex
+Contributors: SedLex
 Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/enable-latex/
-Tags: plugin, latex
+Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
-Tested up to: 3.2
+Tested up to: 3.3.1
 Stable tag: trunk
-Enable the insertion of LaTeX formula in your post
+
+Enable the insertion of LaTeX formula in your post.
 
 == Description ==
 
 Enable the insertion of LaTeX formula in your post.
 
-Just type (for instance) [latex]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type [latex size=0 color=000000 background=ffffff]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
-You can configure:
+You can configure: 
 
-* the style of the image displayed,
-* the color of the background of the image,
-* the color of the text image (the formula),
-* if you want to activate the cache of the formula.
+* the color of the font,  
+* the color of the background, 
+* the style of the image displayed. 
 
-= Localizations =
+Plugin developped from the orginal plugin WP-LaTeX.
 
-* French translation (by me)
+This plugin is under GPL licence.
 
-= Features of the framework = 
+= Localization =
 
-This plugin use SL framework.
+* English (United States), default language
+* French (France) translation provided by SedLex
 
-You may translate this plugin with an embedded feature which is very easy to use by any end-users (without any external tools / knowledge).
+= Features of the framework =
 
-You may also create a new plugin. You will download, from the plugin, an "hello World" plugin: You just have to fill the blank and follow the comments.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
+
+For instance, a new created plugin comes with
+
+* A translation interface to simplify the localization of the text of the plugin ; 
+* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
+* A detailled documentation of all available classes and methodes ; 
+* etc.
+
+Have fun !
 
 == Installation ==
 
@@ -49,6 +59,9 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.2.0 =
+* Improve the English text thanks to Rene 
 
 = 1.1.3 =
 * Improve the English text thanks to Rene 
@@ -92,4 +105,4 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:cc28fc597e23bb087a47267cf3681657
+InfoVersion:8de2627a1d933ec036d308ee758d19bd
