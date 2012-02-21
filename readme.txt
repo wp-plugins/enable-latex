@@ -9,11 +9,11 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Enable the insertion of LaTeX formula in your post.
+Insert LaTeX formulas in your posts.
 
 == Description ==
 
-Enable the insertion of LaTeX formula in your post.
+Insert LaTeX formulas in your posts.
 
 Just type [latex size=0 color=000000 background=ffffff]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
@@ -60,6 +60,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.1 =
+* Update the framework
+
 = 1.2.0 =
 * Improve the English text thanks to Rene 
 
@@ -105,4 +108,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:8de2627a1d933ec036d308ee758d19bd
+InfoVersion:59410c916c5978e521cde88845f7019c
