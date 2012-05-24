@@ -27,6 +27,10 @@ Plugin developped from the orginal plugin WP-LaTeX.
 
 This plugin is under GPL licence.
 
+= Multisite - Wordpress MU =
+
+This plugin is compatible with multisite installation.
+
 = Localization =
 
 * English (United States), default language
@@ -60,45 +64,32 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.2 =
+* Multisite support
+
 = 1.2.1 =
 * Update the framework
 
 = 1.2.0 =
 * Improve the English text thanks to Rene 
 
-= 1.1.3 =
+= 1.1.0 -&gt; 1.1.3 =
 * Improve the English text thanks to Rene 
-
-= 1.1.2 =
 * Update to remove potential bug
-
-= 1.1.1 =
 * Update of the core and adding few translations
-
-= 1.1.0 =
 * SVN support for committing changes
 
-= 1.0.6 =
+= 1.0.2 -&gt; 1.0.6 =
 * The core plugin has been updated
-
-= 1.0.5 =
 * ZipArchive class has been suppressed and pclzip is used instead
-
-= 1.0.4 =
 * Ensure that folders and files permissions are correct for an adequate behavior
-
-= 1.0.3 =
 * Translations available
 * French translation provided
 * Feedback possible
-
-= 1.0.2 =
 * Upgrade of the framework (3.0)
-
-= 1.0.1 =
 * Ensure compatibily with the worpress format for plugins
 
-= 1.0 =
+= 1.0.1 =
 * First release in the wild web
 
 == Frequently Asked Questions ==
@@ -108,4 +99,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:59410c916c5978e521cde88845f7019c
+InfoVersion:aa890ce17fa666d102fa1ddfb02fac0b

@@ -12,6 +12,28 @@ if (!class_exists("Utils")) {
 	class Utils {
 	
 		/** ====================================================================================================================================================
+		* To convert into UTF8
+		* 
+		* @param string $content the string to convert into UTF8
+		* @return string the converted string
+		*/
+
+		function convertUTF8($content) {
+		    if(!mb_check_encoding($content, 'UTF-8')
+			OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
+
+			$content = mb_convert_encoding($content, 'UTF-8');
+
+			if (mb_check_encoding($content, 'UTF-8')) {
+			    // log('Converted to UTF-8');
+			} else {
+			    // log('Could not converted to UTF-8');
+			}
+		    }
+		    return $content;
+		} 
+
+		/** ====================================================================================================================================================
 		* Compute the size of a directory (reccursively or not)
 		* 
 		* @param string $path the path of the directory to scan 
