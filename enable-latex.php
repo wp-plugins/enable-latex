@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.3
+Version: 1.2.4
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -41,7 +41,8 @@ class enableLatex extends pluginSedLex {
 		add_action('wp_print_styles', array( $this, 'ajoute_inline_css'));
 		add_shortcode( 'latex', array( $this, 'latex_shortcode' ) );
 	}
-	/**
+
+/**
 	 * Function to instantiate our class and make it a singleton
 	 */
 	public static function getInstance() {
@@ -49,6 +50,21 @@ class enableLatex extends pluginSedLex {
 			self::$instance = new self;
 		}
 		return self::$instance;
+	}
+
+	
+	/** ====================================================================================================================================================
+	* Add a button in the TinyMCE Editor
+	*
+	* To add a new button, copy the commented lines a plurality of times (and uncomment them)
+	* 
+	* @return array of buttons
+	*/
+	
+	function add_tinymce_buttons() {
+		$buttons = array() ; 
+		$buttons[] = array(__('Add LateX tags', $this->pluginID), '[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]', '', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename( __FILE__)).'img/latex_button.png') ; 
+		return $buttons ; 
 	}
 
 	/** ====================================================================================================================================================
