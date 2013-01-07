@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.4
+Version: 1.2.5
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -21,7 +21,7 @@ class enableLatex extends pluginSedLex {
 	* @return void
 	*/
 	static $instance = false;
-	static $path = false;
+	var $path = false;
 
 	protected function _init() {
 		global  $wpdb ; 
@@ -35,10 +35,9 @@ class enableLatex extends pluginSedLex {
 		//Init et des-init
 		register_activation_hook(__FILE__, array($this,'install'));
 		register_deactivation_hook(__FILE__, array($this,'deactivate'));
-		register_uninstall_hook(__FILE__, array($this,'uninstall_removedata'));
+		register_uninstall_hook(__FILE__, array('enableLatex','uninstall_removedata'));
 		
 		//Paramètres supplementaires
-		add_action('wp_print_styles', array( $this, 'ajoute_inline_css'));
 		add_shortcode( 'latex', array( $this, 'latex_shortcode' ) );
 	}
 
@@ -51,7 +50,36 @@ class enableLatex extends pluginSedLex {
 		}
 		return self::$instance;
 	}
-
+	/** ====================================================================================================================================================
+	* In order to uninstall the plugin, few things are to be done ... 
+	* (do not modify this function)
+	* 
+	* @return void
+	*/
+	
+	public function uninstall_removedata () {
+		global $wpdb ;
+		// DELETE OPTIONS
+		delete_option('enableLatex'.'_options') ;
+		if (is_multisite()) {
+			delete_site_option('enableLatex'.'_options') ;
+		}
+		
+		// DELETE SQL
+		if (function_exists('is_multisite') && is_multisite()){
+			$old_blog = $wpdb->blogid;
+			$old_prefix = $wpdb->prefix ; 
+			// Get all blog ids
+			$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM ".$wpdb->blogs));
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				$wpdb->query("DROP TABLE ".str_replace($old_prefix, $wpdb->prefix, $wpdb->prefix . "pluginSL_" . 'enableLatex')) ; 
+			}
+			switch_to_blog($old_blog);
+		} else {
+			$wpdb->query("DROP TABLE ".$wpdb->prefix . "pluginSL_" . 'enableLatex' ) ; 
+		}
+	}
 	
 	/** ====================================================================================================================================================
 	* Add a button in the TinyMCE Editor
@@ -83,11 +111,15 @@ class enableLatex extends pluginSedLex {
 	}
 
 	/** ====================================================================================================================================================
-	* Add CSS
-	* 
+	* Init css for the public side
+	* If you want to load a style sheet, please type :
+	*	<code>$this->add_inline_css($css_text);</code>
+	*	<code>$this->add_css($css_url_file);</code>
+	*
 	* @return void
 	*/
-	function ajoute_inline_css() {
+	
+	function _public_css_load() {	
 		$this->add_inline_css($this->get_param('css')) ; 
 	}
 	
