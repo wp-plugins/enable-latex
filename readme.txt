@@ -3,7 +3,7 @@
 Author: SedLex
 Contributors: SedLex
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://wordpress.org/extend/plugins/enable-latex/
+Plugin URI: http://wordpress.org/plugins/enable-latex/
 Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
 Tested up to: 3.5
@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.7 =
+* New translation and modification of the URL of wordpress
+
 = 1.2.6 =
 * Few bug fixes
 
@@ -111,4 +114,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:46a2a4f1b02ca532b2e1b86bd50b6179
+InfoVersion:01bde84f9915ac6908cd925c22526bfb
