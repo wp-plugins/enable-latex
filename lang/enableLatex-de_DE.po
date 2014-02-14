@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-12-02T12:24:50+00:00\n"
+"Last-Translator: amens <wp_latex@philipp-jeske.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: Germany\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Add LateX tags"
+msgstr "LaTeX-Tags hinzufügen"
+
+msgid "This plugin will enable LaTeX formula in posts and pages."
+msgstr "Diese Plugin ermöglicht es LaTeX-Formeln in den Beiträgen und Seiten zu verwenden"
+
+msgid "Do you want to change the style of the image displayed for Latex formula:"
+msgstr "Ändern der Standardanzeige für die Bilder der LaTeX-Formeln:"
+
+msgid "The style:"
+msgstr "Der Style:"
+
+msgid "The standard CSS is:"
+msgstr "Das Standard-CSS ist:"
+
+msgid "What is the color:"
+msgstr "Was ist die Farbe ..."
+
+msgid "For the font:"
+msgstr "... für den Vordergrund"
+
+msgid "For the background:"
+msgstr "... für den Hintergrund"
+
+msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
+msgstr "Bitte füge # vor den Code ein. Falls du nicht weißt welcher Code hier gemeint ist, besuche bitte diese Website: %s"
+
+msgid "Do you want to cache the images on the local disk?"
+msgstr "Willst du die Bilder auf lokal cachen?"
+
+msgid "Cache enabled:"
+msgstr "Cache aktivieren"
+
+msgid "Parameters"
+msgstr "Parameter"
+
+msgid "Manage translations"
+msgstr "Übersetzungen verwalten"
+
+msgid "Give feedback"
+msgstr "Feedback geben"
+
+msgid "Other plugins"
+msgstr "Andere Plugins"
+

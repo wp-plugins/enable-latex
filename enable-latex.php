@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.8
+Version: 1.2.9
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -91,7 +91,7 @@ class enableLatex extends pluginSedLex {
 	
 	function add_tinymce_buttons() {
 		$buttons = array() ; 
-		$buttons[] = array(__('Add LateX tags', $this->pluginID), '[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]', '', WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename( __FILE__)).'img/latex_button.png') ; 
+		$buttons[] = array(__('Add LateX tags', $this->pluginID), '[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]', '', plugin_dir_url("/").'/'.str_replace(basename( __FILE__),"",plugin_basename( __FILE__)).'img/latex_button.png') ; 
 		return $buttons ; 
 	}
 
@@ -169,25 +169,25 @@ class enableLatex extends pluginSedLex {
 				$params->add_param('cache', __('Cache enabled:',$this->pluginID)) ; 
 				$params->flush() ; 
 					
-			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
+			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 			
 			
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new translationSL($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
-			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
+			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new feedbackSL($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
-			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
+			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 
 			ob_start() ; 
 				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
-			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
+			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
 			echo $tabs->flush() ; 
 			
@@ -239,7 +239,7 @@ class enableLatex extends pluginSedLex {
 				file_put_contents($path, $img);				
 				chmod($path,0755); 
 			}
-			$url = WP_CONTENT_URL."/sedlex/latex_images/".$md5.".png" ; 
+			$url = content_url()."/sedlex/latex_images/".$md5.".png" ; 
 		}
 		
 		$alt = 'Latex formula' ;

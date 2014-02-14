@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/enable-latex/
 Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.8.1
 Stable tag: trunk
 
 Insert LaTeX formulas in your posts.
@@ -15,7 +15,7 @@ Insert LaTeX formulas in your posts.
 
 Insert LaTeX formulas in your posts.
 
-Just type [latex size=0 color=000000 background=ffffff]\\\\displaystyle f_{rec} = \\\\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type [latex size=0 color=000000 background=ffffff]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
 You can configure: 
 
@@ -33,7 +33,10 @@ This plugin is compatible with multisite installation.
 
 = Localization =
 
+* Arabic (Egypt) translation provided by AmrIbrahim
+* German (Germany) translation provided by amens
 * English (United States), default language
+* Farsi (Iran) translation provided by youseftabeolhojjeh
 * French (France) translation provided by SedLex
 
 = Features of the framework =
@@ -64,8 +67,12 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.9 =
+* Update the core
+
 = 1.2.8 =
 * Update the core
+
 = 1.2.7 =
 * New translation and modification of the URL of wordpress
 
@@ -116,4 +123,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:1275dc2df1d87909346028bda096c0fa
+InfoVersion:dfd73481a3ac9eaa396149ac88cac694

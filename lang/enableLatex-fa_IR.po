@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-06-26T13:16:00+00:00\n"
+"Last-Translator: youseftabeolhojjeh <youseftbh@yahoo.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Farsi\n"
+"X-Poedit-Country: Iran\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Add LateX tags"
+msgstr "اضافه کردن تگِ لاتک"
+
+msgid "This plugin will enable LaTeX formula in posts and pages."
+msgstr "این پلاگین فرمول نویسی لاتک را در نوشته ها و صفحات فعال خواهد کرد ."
+
+msgid "Do you want to change the style of the image displayed for Latex formula:"
+msgstr "تغییر دادن استایل تصویر نمایش داده شده در لاتک :"
+
+msgid "The style:"
+msgstr "استایل :"
+
+msgid "The standard CSS is:"
+msgstr "CSS استاندارد این است :"
+
+msgid "What is the color:"
+msgstr "تغییر رنگ :"
+
+msgid "For the font:"
+msgstr "برای فونت :"
+
+msgid "For the background:"
+msgstr "برای زمینه :"
+
+msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
+msgstr "لطفاً کاراکتر # را قبل از کد وارد کنید .اگرنمی دانید که چه کدی را استفاده کنید،لطفاً به وبسایت مراجعه کنید : %s"
+
+msgid "Do you want to cache the images on the local disk?"
+msgstr "ایا مایلید که تصاویر را بر روی کامپیوترتان ذخیره کنید ؟"
+
+msgid "Cache enabled:"
+msgstr "حافظه نهان فعال شود"
+
+msgid "Parameters"
+msgstr "پارامترها"
+
+msgid "Manage translations"
+msgstr "مدیریت ترجمه ها"
+
+msgid "Give feedback"
+msgstr "ارسال بازخورد"
+
+msgid "Other plugins"
+msgstr "سایر پلاگین ها"
+

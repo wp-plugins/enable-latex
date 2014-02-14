@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Generated: SL Framework (http://www.sedlex.fr)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-11-15T08:14:27+00:00\n"
+"Last-Translator: AmrIbrahim <3amr.tk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Poedit-Language: Arabic\n"
+"X-Poedit-Country: Egypt\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes\n"
+
+msgid "Add LateX tags"
+msgstr "إضافة وسوم ليتكس"
+
+msgid "This plugin will enable LaTeX formula in posts and pages."
+msgstr "ستمكن هذه اﻹضافة معادلات ليتكس في المنشورات والصفحات"
+
+msgid "Do you want to change the style of the image displayed for Latex formula:"
+msgstr "هل تود تغيير مظهر صورة معادلة ليتكس المعروضة؟"
+
+msgid "The style:"
+msgstr "المظهر:"
+
+msgid "The standard CSS is:"
+msgstr "أوراق النمط المتتالية القياسية هي:"
+
+msgid "What is the color:"
+msgstr "ما اللون:"
+
+msgid "For the font:"
+msgstr "للخط:"
+
+msgid "For the background:"
+msgstr "للخلفية:"
+
+msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
+msgstr "فضلا أدخل الرمز # قبل الشيفرة. إذا كنت ﻻ تعلم أي شيفرة تستخدم، فضلا زر موقع الشبكة ذلك: %s"
+
+msgid "Do you want to cache the images on the local disk?"
+msgstr "هل تود تخزين الصور مؤقتَا على القرص المحلي؟"
+
+msgid "Cache enabled:"
+msgstr "تم تفعيل التخزين المؤقت:"
+
+msgid "Parameters"
+msgstr "المعاملات"
+
+msgid "Manage translations"
+msgstr "إدارة التراجم"
+
+msgid "Give feedback"
+msgstr "إعطاء تغذية مرجعية"
+
+msgid "Other plugins"
+msgstr "إضافات أخر"
+
