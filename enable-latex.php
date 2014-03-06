@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.9
+Version: 1.2.10
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -131,13 +131,15 @@ class enableLatex extends pluginSedLex {
 	
 	function configuration_page() {
 		?>
-		<div class="wrap">
-			<div id="icon-themes" class="icon32"><br></div>
+		<div class="plugin-titleSL">
 			<h2><?php echo $this->pluginName ?></h2>
 		</div>
-		<div style="padding:20px;">			
+		
+		<div class="plugin-contentSL">		
+				
 			<?php echo $this->signature ; ?>
 			<p><?php echo __('This plugin will enable LaTeX formula in posts and pages.',$this->pluginID) ?></p>
+			<p><?php echo sprintf(__("To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s (a button is available in the post/page editor)", $this->pluginID),"<code>[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]</code>") ;?></p>
 		<?php
 		
 			// On verifie que les droits sont corrects

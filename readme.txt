@@ -67,6 +67,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.10 =
+* NEW: Improve the look of the plugin
+
 = 1.2.9 =
 * Update the core
 
@@ -123,4 +126,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:5e79f0919614f864bc41e6dc36208730
+InfoVersion:bec66f3a6e73645bcc88d98e4a2ab6af
