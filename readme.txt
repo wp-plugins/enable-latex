@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/enable-latex/
 Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 
 Insert LaTeX formulas in your posts.
@@ -41,14 +41,9 @@ This plugin is compatible with multisite installation.
 
 = Features of the framework =
 
-This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing tools and frames (see dev-toolbox plugin for more info).
 
-For instance, a new created plugin comes with
-
-* A translation interface to simplify the localization of the text of the plugin ; 
-* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
-* A detailled documentation of all available classes and methodes ; 
-* etc.
+You may easily translate the text of the plugin and submit it to the developer, send a feedback, or choose the location of the plugin in the admin panel.
 
 Have fun !
 
@@ -66,6 +61,9 @@ Have fun !
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.2.11 =
+* NEW: Various enhancement of the framework
 
 = 1.2.10 =
 * NEW: Improve the look of the plugin
@@ -126,4 +124,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:cb377969b4696baa2647f44175e7ce7d
+InfoVersion:e1e097c8918913713ad659369fec98d2
