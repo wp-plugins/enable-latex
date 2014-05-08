@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.11
+Version: 1.2.12
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -138,8 +138,6 @@ class enableLatex extends pluginSedLex {
 		<div class="plugin-contentSL">		
 				
 			<?php echo $this->signature ; ?>
-			<p><?php echo __('This plugin will enable LaTeX formula in posts and pages.',$this->pluginID) ?></p>
-			<p><?php echo sprintf(__("To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s (a button is available in the post/page editor)", $this->pluginID),"<code>[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]</code>") ;?></p>
 		<?php
 		
 			// On verifie que les droits sont corrects
@@ -151,10 +149,10 @@ class enableLatex extends pluginSedLex {
 			//		(bien mettre a jour les liens contenu dans les <li> qui suivent)
 			//
 			//==========================================================================================
-			$tabs = new adminTabs() ; 
+			$tabs = new SLFramework_Tabs() ; 
 			
 			ob_start() ; 
-				$params = new parametersSedLex($this, 'tab-parameters') ; 
+				$params = new SLFramework_Parameters($this, 'tab-parameters') ; 
 				$params->add_title(__('Do you want to change the style of the image displayed for Latex formula:',$this->pluginID)) ; 
 				$params->add_param('css', __('The style:',$this->pluginID)) ; 
 				$comment = __('The standard CSS is:',$this->pluginID); 
@@ -174,20 +172,38 @@ class enableLatex extends pluginSedLex {
 			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 			
 			
+			// HOW To
+			ob_start() ;
+				echo "<p>".__("This plugin will enable LaTeX formula in posts and pages.", $this->pluginID)."</p>" ; 
+			$howto1 = new SLFramework_Box (__("Purpose of that plugin", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ;
+				echo "<p>".sprintf(__("To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s.", $this->pluginID),"<code>[latex size=0 color=000000 background=ffffff]&#92;displaystyle f_{rec} = &#92;frac{c+v_{mobile}}{c} f_{em}[/latex]</code>")."</p>" ; 
+				echo "<p>".__("There is also a button in the editor that add this formula.", $this->pluginID)."</p>" ; 
+				echo "<ul style='list-style-type: disc;padding-left:40px;'>" ; 
+					echo "<li><p>".sprintf(__("%s: set this option to 0, 1, 2, 3 or 4. The higher the value is the bigger the formula is.", $this->pluginID), "<code>size</code>")."</p></li>" ; 
+					echo "<li><p>".sprintf(__("%s: the color of the text of the formula.", $this->pluginID), "<code>color</code>")."</p></li>" ; 
+					echo "<li><p>".sprintf(__("%s: the color of the background.", $this->pluginID), "<code>background</code>")."</p></li>" ; 
+				echo "</ul>" ; 
+			$howto2 = new SLFramework_Box (__("How to add a formula in your post?", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ; 
+				 echo $howto1->flush() ; 
+				 echo $howto2->flush() ; 
+			$tabs->add_tab(__('How To',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_how.png") ; 	
+			
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new translationSL($this->pluginID, $plugin) ; 
+				$trans = new SLFramework_Translation($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
 			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new feedbackSL($plugin, $this->pluginID) ; 
+				$trans = new SLFramework_Feedback($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
 			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 
 			ob_start() ; 
-				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
+				$trans = new SLFramework_OtherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
 			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
@@ -230,7 +246,7 @@ class enableLatex extends pluginSedLex {
 		$url = 'http://s.wordpress.com/latex.php?latex=' . rawurlencode( $latex ) . "&bg=".str_replace('#','',$atts['background'])."&fg=".str_replace('#','',$atts['color'])."&s=".$atts['size'];				
 		
 		if ($this->get_param('cache')) {
-			$md5 = md5($url) ; 
+			$md5 = sha1($url) ; 
 			$path = WP_CONTENT_DIR."/sedlex/latex_images" ; 
 			if (!is_dir($path)) {
 				mkdir($path, 0755, true) ; 

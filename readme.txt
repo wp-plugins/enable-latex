@@ -15,7 +15,7 @@ Insert LaTeX formulas in your posts.
 
 Insert LaTeX formulas in your posts.
 
-Just type [latex size=0 color=000000 background=ffffff]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type [latex size=0 color=000000 background=ffffff]\\\\displaystyle f_{rec} = \\\\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
 You can configure: 
 
@@ -61,6 +61,9 @@ Have fun !
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.2.12 =
+* NEW: How to
 
 = 1.2.11 =
 * NEW: Various enhancement of the framework
@@ -124,4 +127,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:ed7938af545d53692b45c0183e027ffa
+InfoVersion:0be59dd71114a845333b9115637636e5e0285db3
