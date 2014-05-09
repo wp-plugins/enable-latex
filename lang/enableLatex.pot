@@ -5,77 +5,112 @@ Content-Transfer-Encoding: 8bit
 msgid "Add LateX tags"
 msgstr ""
 
-#: enable-latex.php:141
-#@ enableLatex
-msgid "This plugin will enable LaTeX formula in posts and pages."
-msgstr ""
-
-#: enable-latex.php:142
-#@ enableLatex
-msgid "To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s (a button is available in the post/page editor)"
-msgstr ""
-
-#: enable-latex.php:158
+#: enable-latex.php:156
 #@ enableLatex
 msgid "Do you want to change the style of the image displayed for Latex formula:"
 msgstr ""
 
-#: enable-latex.php:159
+#: enable-latex.php:157
 #@ enableLatex
 msgid "The style:"
 msgstr ""
 
-#: enable-latex.php:160
+#: enable-latex.php:158
 #@ enableLatex
 msgid "The standard CSS is:"
 msgstr ""
 
-#: enable-latex.php:166
+#: enable-latex.php:164
 #@ enableLatex
 msgid "What is the color:"
 msgstr ""
 
-#: enable-latex.php:167
+#: enable-latex.php:165
 #@ enableLatex
 msgid "For the font:"
 msgstr ""
 
-#: enable-latex.php:168
+#: enable-latex.php:166
 #@ enableLatex
 msgid "For the background:"
 msgstr ""
 
-#: enable-latex.php:169
+#: enable-latex.php:167
 #@ enableLatex
 msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
 msgstr ""
 
-#: enable-latex.php:170
+#: enable-latex.php:168
 #@ enableLatex
 msgid "Do you want to cache the images on the local disk?"
 msgstr ""
 
-#: enable-latex.php:171
+#: enable-latex.php:169
 #@ enableLatex
 msgid "Cache enabled:"
 msgstr ""
 
-#: enable-latex.php:174
+#: enable-latex.php:172
 #@ enableLatex
 msgid "Parameters"
 msgstr ""
 
+#: enable-latex.php:177
+#@ enableLatex
+msgid "This plugin will enable LaTeX formula in posts and pages."
+msgstr ""
+
+#: enable-latex.php:178
+#@ enableLatex
+msgid "Purpose of that plugin"
+msgstr ""
+
+#: enable-latex.php:180
+#@ enableLatex
+msgid "To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s."
+msgstr ""
+
 #: enable-latex.php:181
 #@ enableLatex
-msgid "Manage translations"
+msgid "There is also a button in the editor that add this formula."
+msgstr ""
+
+#: enable-latex.php:183
+#@ enableLatex
+msgid "%s: set this option to 0, 1, 2, 3 or 4. The higher the value is the bigger the formula is."
+msgstr ""
+
+#: enable-latex.php:184
+#@ enableLatex
+msgid "%s: the color of the text of the formula."
+msgstr ""
+
+#: enable-latex.php:185
+#@ enableLatex
+msgid "%s: the color of the background."
 msgstr ""
 
 #: enable-latex.php:187
 #@ enableLatex
+msgid "How to add a formula in your post?"
+msgstr ""
+
+#: enable-latex.php:191
+#@ enableLatex
+msgid "How To"
+msgstr ""
+
+#: enable-latex.php:197
+#@ enableLatex
+msgid "Manage translations"
+msgstr ""
+
+#: enable-latex.php:203
+#@ enableLatex
 msgid "Give feedback"
 msgstr ""
 
-#: enable-latex.php:192
+#: enable-latex.php:208
 #@ enableLatex
 msgid "Other plugins"
 msgstr ""
