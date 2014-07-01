@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/enable-latex/
 Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: trunk
 
 Insert LaTeX formulas in your posts.
@@ -15,7 +15,7 @@ Insert LaTeX formulas in your posts.
 
 Insert LaTeX formulas in your posts.
 
-Just type [latex size=0 color=000000 background=ffffff]\\\\displaystyle f_{rec} = \\\\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
+Just type [latex size=0 color=000000 background=ffffff]\\displaystyle f_{rec} = \\frac{c+v_{mobile}}{c} f_{em}[/latex] in your post to show the LaTeX formula.
 
 You can configure: 
 
@@ -61,6 +61,9 @@ Have fun !
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.2.13 =
+* Various improvements
 
 = 1.2.12 =
 * NEW: How to
@@ -127,4 +130,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:7c96add95db8fb703ea4287b5b61f6fd61a3e89e
+InfoVersion:ab25959886ff0d75404a8e93c4e63a208a60bb3c

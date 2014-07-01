@@ -3,7 +3,7 @@
 Plugin Name: Enable Latex
 Plugin Tag: latex, shortcode, tex, formula, math, physics
 Description: <p>Insert LaTeX formulas in your posts.</p><p>Just type <code>[latex size=0 color=000000 background=ffffff]\displaystyle f_{rec} = \frac{c+v_{mobile}}{c} f_{em}[/latex]</code> in your post to show the LaTeX formula.</p><p>You can configure: </p><ul><li>the color of the font,  </li><li>the color of the background, </li><li>the style of the image displayed. </li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-latex/">WP-LaTeX</a>.</p><p>This plugin is under GPL licence.</p>
-Version: 1.2.12
+Version: 1.2.13
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
@@ -156,11 +156,8 @@ class enableLatex extends pluginSedLex {
 				$params->add_title(__('Do you want to change the style of the image displayed for Latex formula:',$this->pluginID)) ; 
 				$params->add_param('css', __('The style:',$this->pluginID)) ; 
 				$comment = __('The standard CSS is:',$this->pluginID); 
-				$comment .= "<br/><span style='margin-left: 30px;'><code>img.latex {</code></span><br/>" ; 
-				$comment .= "<span style='margin-left: 60px;'><code>vertical-align: middle;</code></span><br/>" ; 
-				$comment .= "<span style='margin-left: 60px;'><code>border: none;</code></span><br/>" ; 
-				$comment .= "<span style='margin-left: 30px;'><code>}</code></span>" ; 
 				$params->add_comment($comment) ; 
+				$params->add_comment_default_value('css') ; 
 				$params->add_title(__('What is the color:',$this->pluginID)) ; 
 				$params->add_param('font_color', __('For the font:',$this->pluginID), '',"@#[a-fA-F0-9]{6}@") ; 
 				$params->add_param('background_color', __('For the background:',$this->pluginID), "","@#[a-fA-F0-9]{6}@") ; 
