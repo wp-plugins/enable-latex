@@ -20,97 +20,97 @@ msgstr ""
 msgid "The standard CSS is:"
 msgstr ""
 
-#: enable-latex.php:164
+#: enable-latex.php:161
 #@ enableLatex
 msgid "What is the color:"
 msgstr ""
 
-#: enable-latex.php:165
+#: enable-latex.php:162
 #@ enableLatex
 msgid "For the font:"
 msgstr ""
 
-#: enable-latex.php:166
+#: enable-latex.php:163
 #@ enableLatex
 msgid "For the background:"
 msgstr ""
 
-#: enable-latex.php:167
+#: enable-latex.php:164
 #@ enableLatex
 msgid "Please add the # character before the code. If you do not know what code to use, please visit this website: %s"
 msgstr ""
 
-#: enable-latex.php:168
+#: enable-latex.php:165
 #@ enableLatex
 msgid "Do you want to cache the images on the local disk?"
 msgstr ""
 
-#: enable-latex.php:169
+#: enable-latex.php:166
 #@ enableLatex
 msgid "Cache enabled:"
 msgstr ""
 
-#: enable-latex.php:172
+#: enable-latex.php:169
 #@ enableLatex
 msgid "Parameters"
 msgstr ""
 
-#: enable-latex.php:177
+#: enable-latex.php:174
 #@ enableLatex
 msgid "This plugin will enable LaTeX formula in posts and pages."
 msgstr ""
 
-#: enable-latex.php:178
+#: enable-latex.php:175
 #@ enableLatex
 msgid "Purpose of that plugin"
 msgstr ""
 
-#: enable-latex.php:180
+#: enable-latex.php:177
 #@ enableLatex
 msgid "To add a LaTeX formula to your posts/pages, you may used a shortcode like this one %s."
 msgstr ""
 
-#: enable-latex.php:181
+#: enable-latex.php:178
 #@ enableLatex
 msgid "There is also a button in the editor that add this formula."
 msgstr ""
 
-#: enable-latex.php:183
+#: enable-latex.php:180
 #@ enableLatex
 msgid "%s: set this option to 0, 1, 2, 3 or 4. The higher the value is the bigger the formula is."
 msgstr ""
 
-#: enable-latex.php:184
+#: enable-latex.php:181
 #@ enableLatex
 msgid "%s: the color of the text of the formula."
 msgstr ""
 
-#: enable-latex.php:185
+#: enable-latex.php:182
 #@ enableLatex
 msgid "%s: the color of the background."
 msgstr ""
 
-#: enable-latex.php:187
+#: enable-latex.php:184
 #@ enableLatex
 msgid "How to add a formula in your post?"
 msgstr ""
 
-#: enable-latex.php:191
+#: enable-latex.php:188
 #@ enableLatex
 msgid "How To"
 msgstr ""
 
-#: enable-latex.php:197
+#: enable-latex.php:194
 #@ enableLatex
 msgid "Manage translations"
 msgstr ""
 
-#: enable-latex.php:203
+#: enable-latex.php:200
 #@ enableLatex
 msgid "Give feedback"
 msgstr ""
 
-#: enable-latex.php:208
+#: enable-latex.php:205
 #@ enableLatex
 msgid "Other plugins"
 msgstr ""

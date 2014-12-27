@@ -6,8 +6,9 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/enable-latex/
 Tags: latex, shortcode, tex, formula, math, physics
 Requires at least: 3.0
-Tested up to: 3.9.1
+Tested up to: 4.2
 Stable tag: trunk
+License: GPLv3
 
 Insert LaTeX formulas in your posts.
 
@@ -61,6 +62,9 @@ Have fun !
 2. An example of LaTex formula in a post
 
 == Changelog ==
+
+= 1.2.14 =
+* NEW : add icons
 
 = 1.2.13 =
 * Various improvements
@@ -130,4 +134,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:ab25959886ff0d75404a8e93c4e63a208a60bb3c
+InfoVersion:24a5cb615452b63b3a0515cf0733107f8d779f9a
