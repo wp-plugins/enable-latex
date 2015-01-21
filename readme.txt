@@ -63,6 +63,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.2.15 =
+* NEW : delete temp files upon desinstall
+
 = 1.2.14 =
 * NEW : add icons
 
@@ -134,4 +137,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:24a5cb615452b63b3a0515cf0733107f8d779f9a
+InfoVersion:36dec71fb1cad6ab827a3c5c3c43f17b456ef974
